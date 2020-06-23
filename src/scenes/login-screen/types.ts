@@ -28,6 +28,8 @@ export type LoginScreenState = { }
 
 export type LoginDetailsDispatchProps = {
     signInUser: () => void
+    // TODO: get rid of this signOutUser
+    signOutUser: () => void // temporary purpose
     setPhoneNumber: (phoneNumber: string) => void
     setPassword: (password: string) => void
     setCountry: (countryCode: string) => void
