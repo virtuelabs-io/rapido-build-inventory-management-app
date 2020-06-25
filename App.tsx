@@ -6,7 +6,9 @@ import { CoreReduxInitialState } from './src/store/core/data';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import Constants from '@virtuelabs-io/rapido-modules/src/commons/constants';
+import { enableScreens } from 'react-native-screens';
 
+enableScreens()
 
 const fetchFonts = () => {
   return Font.loadAsync(Constants.FONTS);

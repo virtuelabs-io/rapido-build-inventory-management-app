@@ -1,4 +1,4 @@
-import { Country } from '../../models/country';
+import { Country } from '@virtuelabs-io/rapido-modules/src/models/country';
 
 export type Authentication = {
     signedIn: boolean

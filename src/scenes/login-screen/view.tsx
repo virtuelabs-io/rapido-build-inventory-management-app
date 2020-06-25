@@ -1,28 +1,66 @@
 import React, { Dispatch }  from 'react';
-import { Button, View } from 'react-native';
+import { View, ScrollView, KeyboardAvoidingView, Button } from 'react-native';
+import { Card, PhoneNumber, PasswordInput, RButton, RHeadingText, RText, Logo } from '@virtuelabs-io/rapido-modules/src/components/atoms';
 import { LoginScreenProps, LoginScreenState, LoginDetailsDispatchProps } from './types'
 import { connect } from 'react-redux';
 import { AppState, AppActionTypes } from '../../store';
 import { signInUser, setCountry, setPhoneNumber, setPassword, signOutUser } from '../../store/core/actions';
-import { RButton } from '@virtuelabs-io/rapido-modules/src/components/atoms';
+import Styles from './styles';
+//import { getStackStyles } from '@virtuelabs-io/rapido-modules/src/commons/styles';
 
 class LoginScreen extends React.Component<LoginScreenProps, LoginScreenState> {
     constructor(props: LoginScreenProps) {
-        console.log("Anirup")
-        console.log(props)
         super(props)
-        console.log(this.props.data)
-       // this.props.navigation.setOptions(getStackStyles(this.props.route.params.title))
+        console.log(this.props)
+       // this.props.navigation.setOptions(getStackStyles(this.props.route.name))
+    }
+
+    dashboardStackNavigationHandler = () => {
+        console.log("dashboardStackNavigationHandler Handled!")
+    } 
+
+    resetCodeScreenNavigationHandler = () => {
+        // @ts-ignore
+        // REASON: state picked up from redux
+        this.props.navigation.navigate("resetCode")
     }
 
     render(): React.ReactNode {
         return (
-            <View>
-                <Button title="Log In" onPress={this.props.signInUser} />
-                <Button title="Log Out" onPress={this.props.signOutUser} />
-                <RButton name="Custom Button" onPress={() => console.log('Custom button clicked!')} />
-            </View>
-            
+            <ScrollView style={Styles.screen}>
+                <KeyboardAvoidingView behavior="position" keyboardVerticalOffset={30}>
+                    <Logo />
+                    <Card>
+                        <PhoneNumber
+                            data={{
+                                country: this.props.data.country,
+                                phoneNumber: this.props.data.phoneNumber
+                            }}
+                            operations={{
+                                setCountry: this.props.setCountry,
+                                setPhoneNumber: this.props.setPhoneNumber
+                            }}
+                        />
+                        <PasswordInput
+                            data={{
+                                password: this.props.data.password,
+                                inputHelperText: "Enter your Password"
+                            }}
+                            operations={{
+                                setPassword: this.props.setPassword
+                            }}
+                        />
+                        <RButton name={this.props.route.name} onPress={this.props.signInUser} />
+                        <View style={Styles.forgotPasswordContainer}>
+                            <Button title="Forgot your Password?" onPress={this.resetCodeScreenNavigationHandler} />
+                        </View>
+                    </Card>
+                </KeyboardAvoidingView>
+                <Card>
+                    <RText>Want to try out our product?</RText>
+                    <RButton name="Request access" onPress={() => { console.log(this.props) }} />
+                </Card>
+            </ScrollView>
         )
     }
 }
@@ -41,7 +79,6 @@ const mapStatetoProps = (state: AppState, localProps: LoginScreenProps): LoginSc
 const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): LoginDetailsDispatchProps => {
     return {
         signInUser: () => dispatch(signInUser()),
-        signOutUser: () => dispatch(signOutUser()),
         setCountry: (countryCode: string) => dispatch(setCountry(countryCode)),
         setPhoneNumber: (phoneNumber: string) => dispatch(setPhoneNumber(phoneNumber)),
         setPassword: (password: string) => dispatch(setPassword(password))

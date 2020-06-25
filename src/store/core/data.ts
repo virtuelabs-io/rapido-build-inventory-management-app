@@ -1,5 +1,5 @@
 import { CoreReduxStateType } from './types';
-import Constants from '@virtuelabs-io/rapido-modules/src/commons/constants';
+import Constants from '@virtuelabs-io/rapido-modules/src/commons/constants'
 
 export const CoreReduxInitialState: CoreReduxStateType = {
     rootStackParams: {
