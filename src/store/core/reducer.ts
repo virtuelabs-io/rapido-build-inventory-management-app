@@ -1,7 +1,7 @@
 import { CoreReduxStateType } from './types'
 import { SET_PHONE_NUMBER, SET_COUNTRY, CoreActionTypes, USER_SIGNED_IN, USER_SIGNED_OUT, SET_PASSWORD, SET_NEW_PASSWORD, SET_OTP } from './actions';
-import Constants from '../../commons/constants';
-import { Country } from '../../models';
+import Constants from '@virtuelabs-io/rapido-modules/src/commons/constants';
+import { Country } from '@virtuelabs-io/rapido-modules/src/models/country';
 import { CoreReduxInitialState } from './data'
 
 const countries: Country[] = Constants.COUNTRY_CODES

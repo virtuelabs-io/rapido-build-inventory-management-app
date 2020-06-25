@@ -1,6 +1,6 @@
 import { StackScreenProps } from '@react-navigation/stack';
 import { AuthStackNavigationParamsType } from '../../store/core/types'
-import { Country } from '../../models/country';
+import { Country } from '@virtuelabs-io/rapido-modules/src/models/country';
 
 type font = {
     id: string

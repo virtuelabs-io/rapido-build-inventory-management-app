@@ -4,6 +4,7 @@ import { LoginScreenProps, LoginScreenState, LoginDetailsDispatchProps } from '.
 import { connect } from 'react-redux';
 import { AppState, AppActionTypes } from '../../store';
 import { signInUser, setCountry, setPhoneNumber, setPassword, signOutUser } from '../../store/core/actions';
+import { RButton } from '@virtuelabs-io/rapido-modules/src/components/atoms';
 
 class LoginScreen extends React.Component<LoginScreenProps, LoginScreenState> {
     constructor(props: LoginScreenProps) {
@@ -19,6 +20,7 @@ class LoginScreen extends React.Component<LoginScreenProps, LoginScreenState> {
             <View>
                 <Button title="Log In" onPress={this.props.signInUser} />
                 <Button title="Log Out" onPress={this.props.signOutUser} />
+                <RButton name="Custom Button" onPress={() => console.log('Custom button clicked!')} />
             </View>
             
         )
