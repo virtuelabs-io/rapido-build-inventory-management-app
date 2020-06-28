@@ -3,11 +3,13 @@ import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
 import { NavigationContainer } from '@react-navigation/native';
 import LoginScreen from '../scenes/login-screen/view';
 import { AppState, AppActionTypes } from '../store';
-import { AppNavigationDispatchProps } from './types'
-import { AppNavigationProps, AppNavigationState } from './types'
-import { connect } from 'react-redux'
-import ResetCodeScreen from '../scenes/reset-code-screen/view'
+import { AppNavigationDispatchProps } from './types';
+import { AppNavigationProps, AppNavigationState } from './types';
+import { connect } from 'react-redux';
+import ResetCodeScreen from '../scenes/reset-code-screen/view';
+import ResetPasswordScreen from '../scenes/reset-password-screen/view';
 import { RootStackParamsType, AuthStackNavigationParamsType } from '../store/core/types';
+import FinishedResetScreen from '../scenes/finished-reset-screen/view';
 
 
 
@@ -34,6 +36,16 @@ class AppNavigation extends React.Component<AppNavigationProps, AppNavigationSta
                         name="resetCode"
                         component={ResetCodeScreen}
                         initialParams={this.props.core.rootStackParams.authStack.resetCode}
+                    />
+                    <AuthStackNavigator.Screen
+                        name="resetPassword"
+                        component={ResetPasswordScreen}
+                        initialParams={this.props.core.rootStackParams.authStack.resetPassword}
+                    />
+                    <AuthStackNavigator.Screen
+                        name="finishedReset"
+                        component={FinishedResetScreen}
+                        initialParams={this.props.core.rootStackParams.authStack.finishedReset}
                     />
                 </AuthStackNavigator.Navigator>
             </NavigationContainer>
