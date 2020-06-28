@@ -16,6 +16,11 @@ export const CoreReduxInitialState: CoreReduxStateType = {
             finishedReset: {
                 title: "Reset Successful"
             }
+        },
+        productStack: {
+            product: {
+                title: "Products"
+            }
         }
     },
     coreData: {

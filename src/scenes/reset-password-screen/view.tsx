@@ -6,12 +6,13 @@ import { Card, RButton, RText, OTPInput, PasswordInput, Logo } from '@virtuelabs
 import { AppState, AppActionTypes } from '../../store';
 import { connect } from 'react-redux';
 import { setOTP, setNewPassword } from '../../store/core/actions';
+import { getStackStyles } from '../../commons/styles/stack-style-constants'
 
 class ResetPasswordScreen extends React.Component<ResetPasswordScreenProps, ResetPasswordScreenState> {
 
     constructor(props: ResetPasswordScreenProps) {
         super(props)
-       // this.props.navigation.setOptions(getStackStyles(this.props.route.params.title))
+       this.props.navigation.setOptions(getStackStyles(this.props.route.params.title))
     }
 
     finishedResetScreenNavigationHandler = () => {

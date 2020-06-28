@@ -10,10 +10,15 @@ import ResetCodeScreen from '../scenes/reset-code-screen/view';
 import ResetPasswordScreen from '../scenes/reset-password-screen/view';
 import { RootStackParamsType, AuthStackNavigationParamsType } from '../store/core/types';
 import FinishedResetScreen from '../scenes/finished-reset-screen/view';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Feather } from '@expo/vector-icons';
+import { getTabIcon, getTabBarStyles, getTabLabel } from '../commons/styles/stack-style-constants';
+import { ProductStackNavigation } from './stacks/product-stack';
 
 
+const TabNavigator = createBottomTabNavigator<RootStackParamsType>();
 
-const AuthStackNavigator = createStackNavigator();
+const AuthStackNavigator = createStackNavigator<AuthStackNavigationParamsType>();
 
 type AuthStackScreenProps = StackScreenProps<RootStackParamsType, 'authStack'>;
 
@@ -26,28 +31,50 @@ class AppNavigation extends React.Component<AppNavigationProps, AppNavigationSta
     render(): React.ReactNode {
         return (
             <NavigationContainer>
-                <AuthStackNavigator.Navigator initialRouteName="login">
-                    <AuthStackNavigator.Screen
-                        name="login"
-                        component={LoginScreen}
-                        initialParams={this.props.core.rootStackParams.authStack.login}
-                    />
-                    <AuthStackNavigator.Screen
-                        name="resetCode"
-                        component={ResetCodeScreen}
-                        initialParams={this.props.core.rootStackParams.authStack.resetCode}
-                    />
-                    <AuthStackNavigator.Screen
-                        name="resetPassword"
-                        component={ResetPasswordScreen}
-                        initialParams={this.props.core.rootStackParams.authStack.resetPassword}
-                    />
-                    <AuthStackNavigator.Screen
-                        name="finishedReset"
-                        component={FinishedResetScreen}
-                        initialParams={this.props.core.rootStackParams.authStack.finishedReset}
-                    />
-                </AuthStackNavigator.Navigator>
+                {this.props.core.coreData.auth.signedIn ? (
+                    <TabNavigator.Navigator
+                        initialRouteName="productStack"
+                        screenOptions={(props) => ({
+                            tabBarIcon: (tabProps: any) => {
+                                return (
+                                    <Feather name={getTabIcon(props.route.name)} size={tabProps.size + 2} color={tabProps.color} />
+                                )
+                            },
+                            tabBarLabel: getTabLabel(props.route.name)
+                        })}
+                        tabBarOptions={getTabBarStyles()}>
+                        <TabNavigator.Screen
+                            name="productStack"
+                            component={ProductStackNavigation}
+                            initialParams={this.props.core.rootStackParams.productStack}
+                        />
+
+                    </TabNavigator.Navigator>
+                ) : (
+                        <AuthStackNavigator.Navigator initialRouteName="login">
+                            <AuthStackNavigator.Screen
+                                name="login"
+                                component={LoginScreen}
+                                initialParams={this.props.core.rootStackParams.authStack.login}
+                            />
+                            <AuthStackNavigator.Screen
+                                name="resetCode"
+                                component={ResetCodeScreen}
+                                initialParams={this.props.core.rootStackParams.authStack.resetCode}
+                            />
+                            <AuthStackNavigator.Screen
+                                name="resetPassword"
+                                component={ResetPasswordScreen}
+                                initialParams={this.props.core.rootStackParams.authStack.resetPassword}
+                            />
+                            <AuthStackNavigator.Screen
+                                name="finishedReset"
+                                component={FinishedResetScreen}
+                                initialParams={this.props.core.rootStackParams.authStack.finishedReset}
+                            />
+                        </AuthStackNavigator.Navigator>
+                    )
+                }
             </NavigationContainer>
         )
     }

@@ -6,13 +6,13 @@ import { connect } from 'react-redux';
 import { AppState, AppActionTypes } from '../../store';
 import { signInUser, setCountry, setPhoneNumber, setPassword, signOutUser } from '../../store/core/actions';
 import Styles from './styles';
-//import { getStackStyles } from '@virtuelabs-io/rapido-modules/src/commons/styles';
+import { getStackStyles } from '../../commons/styles/stack-style-constants';
 
 class LoginScreen extends React.Component<LoginScreenProps, LoginScreenState> {
     constructor(props: LoginScreenProps) {
         super(props)
         console.log(this.props)
-       // this.props.navigation.setOptions(getStackStyles(this.props.route.name))
+       this.props.navigation.setOptions(getStackStyles(this.props.route.name))
     }
 
     dashboardStackNavigationHandler = () => {

@@ -21,8 +21,15 @@ export type AuthStackNavigationParamsType = {
     }
 }
 
+export type ProductStackNavigationParamsType = {
+    product: {
+        title: string
+    }
+}
+
 export type RootStackParamsType = {
-    authStack: AuthStackNavigationParamsType
+    authStack: AuthStackNavigationParamsType,
+    productStack: ProductStackNavigationParamsType
 }
 
 export type CoreReduxStateType = {

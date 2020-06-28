@@ -3,12 +3,13 @@ import { View } from 'react-native'
 import Styles from './styles'
 import { FinishedResetScreenProps, FinishedResetScreenState } from './types'
 import { RText, RButton, RHeadingText, Card, Logo } from '@virtuelabs-io/rapido-modules/src/components/atoms'
+import { getStackStyles } from '../../commons/styles/stack-style-constants'
 
 class FinishedResetScreen extends React.Component<FinishedResetScreenProps, FinishedResetScreenState> {
 
     constructor(props: FinishedResetScreenProps) {
         super(props)
-        //this.props.navigation.setOptions(getStackStyles(this.props.route.params.title))
+        this.props.navigation.setOptions(getStackStyles(this.props.route.params.title))
     }
 
     loginScreenNavigationHandler = () => {

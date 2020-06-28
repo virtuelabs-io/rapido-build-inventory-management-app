@@ -6,12 +6,13 @@ import { Card, PhoneNumber, RHeadingText, RButton, RText, Logo } from '@virtuela
 import { AppState, AppActionTypes } from '../../store';
 import { connect } from 'react-redux';
 import { setCountry, setPhoneNumber, setOTP, setNewPassword } from '../../store/core/actions';
+import { getStackStyles } from '../../commons/styles/stack-style-constants'
 
 class ResetCodeScreen extends React.Component<ResetCodeScreenProps, ResetCodeScreenState> {
 
     constructor(props: ResetCodeScreenProps) {
         super(props)
-       // this.props.navigation.setOptions(getStackStyles(this.props.route.params.title))
+       this.props.navigation.setOptions(getStackStyles(this.props.route.params.title))
     }
 
     resetPasswordScreenNavigationHandler = () => {
