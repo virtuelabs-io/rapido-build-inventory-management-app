@@ -9,7 +9,6 @@ class ProfileScreen extends React.Component<ProfileScreenProps, ProfileScreenSta
     constructor(props: ProfileScreenProps) {
         super(props)
         this.props.navigation.setOptions(getStackStyles(this.props.route.name))
-        console.log(props)
     }
 
     render(): React.ReactNode {

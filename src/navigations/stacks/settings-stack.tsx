@@ -4,6 +4,7 @@ import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
 import SettingsScreen from '../../scenes/settings-screen/view'
 import ProfileScreen from '../../scenes/profile-screen/view';
 import ConfigurationScreen from '../../scenes/configuration-screen/view';
+import PrivacyPolicyScreen from '../../scenes/privacy-policy-screen/view';
 
 
 
@@ -32,6 +33,11 @@ export class SettingsStackNavigation extends React.Component<SettingsStackScreen
 				<SettingsStackNavigator.Screen
                     name="configuration"
                     component={ConfigurationScreen}
+                    initialParams={this.props.route.params.settings}
+                />
+				<SettingsStackNavigator.Screen
+                    name="privacyPolicy"
+                    component={PrivacyPolicyScreen}
                     initialParams={this.props.route.params.settings}
                 />
 			</SettingsStackNavigator.Navigator>

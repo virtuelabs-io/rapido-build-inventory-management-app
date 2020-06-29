@@ -61,7 +61,8 @@ const Constants = {
             orders: "orders",
             orderDetails: "orderDetails",
             settings: "settings",
-            profile: "profile"
+            profile: "profile",
+            privacyPolicy: "Privacy Policy"
         }
     }
 }
