@@ -3,6 +3,7 @@ import { SettingsStackNavigationParamsType, RootStackParamsType } from '../../st
 import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
 import SettingsScreen from '../../scenes/settings-screen/view'
 import ProfileScreen from '../../scenes/profile-screen/view';
+import ConfigurationScreen from '../../scenes/configuration-screen/view';
 
 
 
@@ -26,6 +27,11 @@ export class SettingsStackNavigation extends React.Component<SettingsStackScreen
 				<SettingsStackNavigator.Screen
                     name="profile"
                     component={ProfileScreen}
+                    initialParams={this.props.route.params.settings}
+                />
+				<SettingsStackNavigator.Screen
+                    name="configuration"
+                    component={ConfigurationScreen}
                     initialParams={this.props.route.params.settings}
                 />
 			</SettingsStackNavigator.Navigator>
