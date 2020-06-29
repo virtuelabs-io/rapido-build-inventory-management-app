@@ -86,11 +86,9 @@ export const getTabLabel = (route: string) => {
 
     if (route == lsettings.settingsStack.name) {
         tabLabel = lsettings.settingsStack.displayText
-        console.log(tabLabel)
     }
     if (route == lsettings.productStack.name) {
         tabLabel = lsettings.productStack.displayText
-        console.log(tabLabel)
     }
     return tabLabel
 }
