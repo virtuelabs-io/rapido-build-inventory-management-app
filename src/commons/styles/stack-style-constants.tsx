@@ -63,6 +63,9 @@ export const getTabIcon = (route: string) => {
     if (route == lsettings.productStack.name) {
         iconName = lsettings.productStack.icon
     }
+    if (route == lsettings.settingsStack.name) {
+        iconName = lsettings.settingsStack.icon
+    }
     return iconName
 }
 
@@ -81,8 +84,13 @@ export const getTabLabel = (route: string) => {
     const lsettings = Constants.NAV.stackNames
     var tabLabel: string = "Tab"
 
-    if (route == lsettings.dashboardStack.name) {
-        tabLabel = lsettings.dashboardStack.displayText
+    if (route == lsettings.settingsStack.name) {
+        tabLabel = lsettings.settingsStack.displayText
+        console.log(tabLabel)
+    }
+    if (route == lsettings.productStack.name) {
+        tabLabel = lsettings.productStack.displayText
+        console.log(tabLabel)
     }
     return tabLabel
 }

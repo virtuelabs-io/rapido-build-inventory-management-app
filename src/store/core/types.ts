@@ -27,9 +27,31 @@ export type ProductStackNavigationParamsType = {
     }
 }
 
+export type SettingsStackNavigationParamsType = {
+    settings: {
+        title: string
+    }
+    profile: {
+        title: string
+    }
+    configuration: {
+        title: string
+    }
+    privacyPolicy: {
+        title: string
+    }
+    termsOfService: {
+        title: string
+    }
+    aboutUs: {
+        title: string
+    }
+}
+
 export type RootStackParamsType = {
     authStack: AuthStackNavigationParamsType,
-    productStack: ProductStackNavigationParamsType
+    productStack: ProductStackNavigationParamsType,
+    settingsStack: SettingsStackNavigationParamsType
 }
 
 export type CoreReduxStateType = {

@@ -11,12 +11,11 @@ import { getStackStyles } from '../../commons/styles/stack-style-constants';
 class LoginScreen extends React.Component<LoginScreenProps, LoginScreenState> {
     constructor(props: LoginScreenProps) {
         super(props)
-        console.log(this.props)
        this.props.navigation.setOptions(getStackStyles(this.props.route.name))
     }
 
     dashboardStackNavigationHandler = () => {
-        console.log("dashboardStackNavigationHandler Handled!")
+       // console.log("dashboardStackNavigationHandler Handled!")
     } 
 
     resetCodeScreenNavigationHandler = () => {

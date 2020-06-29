@@ -44,6 +44,12 @@ const Constants = {
                 icon: "package",
                 package: "Feather",
                 displayText: "Products"
+            },
+            settingsStack: {
+                name: "settingsStack",
+                icon: "settings",
+                package: "feather",
+                displayText: "Settings"
             }
         },
         screenNames: {

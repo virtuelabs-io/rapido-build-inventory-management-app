@@ -14,6 +14,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather } from '@expo/vector-icons';
 import { getTabIcon, getTabBarStyles, getTabLabel } from '../commons/styles/stack-style-constants';
 import { ProductStackNavigation } from './stacks/product-stack';
+import { SettingsStackNavigation } from './stacks/settings-stack';
 
 
 const TabNavigator = createBottomTabNavigator<RootStackParamsType>();
@@ -48,7 +49,10 @@ class AppNavigation extends React.Component<AppNavigationProps, AppNavigationSta
                             component={ProductStackNavigation}
                             initialParams={this.props.core.rootStackParams.productStack}
                         />
-
+                        <TabNavigator.Screen
+                            name="settingsStack"
+                            component={SettingsStackNavigation}
+                            initialParams={this.props.core.rootStackParams.settingsStack} />
                     </TabNavigator.Navigator>
                 ) : (
                         <AuthStackNavigator.Navigator initialRouteName="login">

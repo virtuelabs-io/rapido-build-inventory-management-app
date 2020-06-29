@@ -21,6 +21,26 @@ export const CoreReduxInitialState: CoreReduxStateType = {
             product: {
                 title: "Products"
             }
+        },
+        settingsStack: {
+            settings: {
+                title: "Settings"
+            },
+            profile: {
+                title: "Profile"
+            },
+            configuration: {
+                title: "Configuration"
+            },
+            privacyPolicy: {
+                title: "Privacy Policy"
+            },
+            termsOfService: {
+                title: "Terms Of Service"
+            },
+            aboutUs: {
+                title: "About Us"
+            }
         }
     },
     coreData: {

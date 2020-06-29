@@ -24,7 +24,7 @@ const signInUser = (state: CoreReduxStateType): CoreReduxStateType => {
 const signOutUser = (state: CoreReduxStateType): CoreReduxStateType => {
     const coreData = state.coreData
     const auth = state.coreData.auth
-    console.log("signOutUser triggered")
+    //console.log("signOutUser triggered")
     return {
         ...state,
         coreData: {
