@@ -5,6 +5,7 @@ import SettingsScreen from '../../scenes/settings-screen/view'
 import ProfileScreen from '../../scenes/profile-screen/view';
 import ConfigurationScreen from '../../scenes/configuration-screen/view';
 import PrivacyPolicyScreen from '../../scenes/privacy-policy-screen/view';
+import TermsOfServiceScreen from '../../scenes/terms-of-service-screen/view';
 
 
 
@@ -38,6 +39,11 @@ export class SettingsStackNavigation extends React.Component<SettingsStackScreen
 				<SettingsStackNavigator.Screen
                     name="privacyPolicy"
                     component={PrivacyPolicyScreen}
+                    initialParams={this.props.route.params.settings}
+                />
+                <SettingsStackNavigator.Screen
+                    name="termsOfService"
+                    component={TermsOfServiceScreen}
                     initialParams={this.props.route.params.settings}
                 />
 			</SettingsStackNavigator.Navigator>
