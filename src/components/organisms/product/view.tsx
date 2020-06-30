@@ -26,7 +26,7 @@ export class Product extends React.Component<ProductProps, ProductState> {
                         <RTitleText> {this.props.data.SKUNumber}</RTitleText>
                     </View>
                     <RText>{this.props.data.ProductTitle}</RText>
-                    <DueDate>{this.props.data.InStockQty}</DueDate>
+                    <RText>Quantity: {this.props.data.InStockQty}</RText>
                 </View>
                 {/* <View style={Styles.rightContainer}>
                     <OrderStatus>{this.props.data.orderStatus.toLocaleUpperCase()}</OrderStatus>

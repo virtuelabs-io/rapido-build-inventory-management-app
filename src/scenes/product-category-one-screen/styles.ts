@@ -5,11 +5,10 @@ import Utils from '@virtuelabs-io/rapido-modules/src/commons/utils';
 const Styles = StyleSheet.create({
     screen: {
         flex: 1,
-        // paddingHorizontal: "50",
-        // paddingTop: 5
     },
     container: {
-        flex: 1
+        flex: 1,
+        marginHorizontal: 10,
     },
     settingsItemContainer: {
         flexDirection: 'row',
