@@ -1,1 +1,1 @@
-export { DummyData} from './dummy-data'
+export { DummyData } from './dummy-data'

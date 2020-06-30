@@ -1,10 +1,12 @@
 import React, { Dispatch } from 'react'
-import { ScrollView, View, Dimensions, Text } from 'react-native'
+import { ScrollView, View, Dimensions, Text, FlatList } from 'react-native'
 import Styles from './styles'
 import { ProductScreenProps, ProductScreenState, ProductScreenDispatchProps } from './types'
 import { AppState, AppActionTypes } from '../../store';
 import { connect } from 'react-redux';
 import { getStackStyles } from '../../commons/styles/stack-style-constants';
+import { Order } from '@virtuelabs-io/rapido-modules/src/components/organisms/order/view';
+import { Product } from '../../components/organisms/product/view';
 
 class ProductScreen extends React.Component<ProductScreenProps, ProductScreenState> {
 
@@ -19,7 +21,12 @@ class ProductScreen extends React.Component<ProductScreenProps, ProductScreenSta
         return (
             <ScrollView style={Styles.screen}>
                 <View>
-                    <Text>Product Screen</Text>
+                <FlatList
+                style={Styles.screen}
+                data={this.props.data}
+                renderItem={(order) => <Product data={order.item} onPress={() => console.log("Product pressed!!")} />}
+                keyExtractor={order => order.SKUNumber.toString()}
+            />
                 </View>
             </ScrollView>
         )
@@ -28,7 +35,8 @@ class ProductScreen extends React.Component<ProductScreenProps, ProductScreenSta
 
 const mapStatetoProps = (state: AppState, localProps: ProductScreenProps): ProductScreenProps => {
     return {
-        ...localProps
+        ...localProps,
+        data: state.products.headerRecords
     }
 }
 

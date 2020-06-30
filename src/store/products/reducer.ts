@@ -10,7 +10,7 @@ const updateAllOrderHeaderDetails = (state: ProductsStateType, data: any): Produ
     }
 }
 
-export const OrdersReducer = (state = ProductsInitialState, action: ProductsActionTypes): ProductsStateType => {
+export const ProductsReducer = (state = ProductsInitialState, action: ProductsActionTypes): ProductsStateType => {
     switch (action.type) {
         case SET_ALL_PRODUCT_HEADERS:
             return updateAllOrderHeaderDetails(state, action.data)
