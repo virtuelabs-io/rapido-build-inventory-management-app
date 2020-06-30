@@ -1,0 +1,27 @@
+[
+    {
+        "SKUNumber": 100001,
+        "ProductTitle": "Diesel Mens Smartwatch with Leather Strap DZT2009",
+        "InStockQty": 20
+    },
+    {
+        "SKUNumber": 100002,
+        "ProductTitle": "Samsung Galaxy Watch Active 40mm Silver",
+        "InStockQty": 30
+    },
+    {
+        "SKUNumber": 100003,
+        "ProductTitle": "Skagen Mens Smartwatch with Leather Strap SKT5104",
+        "InStockQty": 10
+    },
+    {
+        "SKUNumber": 100004,
+        "ProductTitle": "Emporio Armani Mens Smartwatch with Rubber Strap ART5008",
+        "InStockQty": 50
+    },
+    {
+        "SKUNumber": 100005,
+        "ProductTitle": "Armani Exchange Unisex Hybrid Smartwatch AXT1001",
+        "InStockQty": 25
+    }
+]
