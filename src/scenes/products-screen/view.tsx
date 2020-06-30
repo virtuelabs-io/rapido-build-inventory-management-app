@@ -5,30 +5,31 @@ import { ProductScreenProps, ProductScreenState, ProductScreenDispatchProps } fr
 import { AppState, AppActionTypes } from '../../store';
 import { connect } from 'react-redux';
 import { getStackStyles } from '../../commons/styles/stack-style-constants';
-import { Order } from '@virtuelabs-io/rapido-modules/src/components/organisms/order/view';
 import { Product } from '../../components/organisms/product/view';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 class ProductScreen extends React.Component<ProductScreenProps, ProductScreenState> {
 
     constructor(props: ProductScreenProps, state: ProductScreenState) {
         super(props)
+        console.log(this.props.route.params.title)
         this.props.navigation.setOptions(getStackStyles(
-            this.props.route.params.title
+            this.props.title
         ))
     }
 
     render(): React.ReactNode {
         return (
-            <ScrollView style={Styles.screen}>
-                <View>
+            <SafeAreaView style={Styles.screen}>
+                
                 <FlatList
                 style={Styles.screen}
                 data={this.props.data}
-                renderItem={(product) => <Product data={product.item} onPress={() => console.log(product.item.ProductTitle)} />}
-                keyExtractor={order => order.SKUNumber.toString()}
+                renderItem={(product) => <Product data={product.item} onPress={() => console.log("Hi")} />}
+                keyExtractor={(product) => product.SKUNumber.toString()}
             />
-                </View>
-            </ScrollView>
+               
+            </SafeAreaView>
         )
     }
 }
@@ -36,7 +37,8 @@ class ProductScreen extends React.Component<ProductScreenProps, ProductScreenSta
 const mapStatetoProps = (state: AppState, localProps: ProductScreenProps): ProductScreenProps => {
     return {
         ...localProps,
-        data: state.products.headerRecords
+        data: state.products.headerRecords.filter(product => product.CategoryId.toString() == localProps.route.params.title),
+        title: "Products"
     }
 }
 

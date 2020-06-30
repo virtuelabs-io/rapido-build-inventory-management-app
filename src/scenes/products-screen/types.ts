@@ -6,7 +6,8 @@ import { ProductHeader } from '../../models/products';
 export type ProductScreenParamProps = StackScreenProps<ProductStackNavigationParamsType, 'product'>
 
 export type ProductScreenDataProps = {
-    data: ProductHeader[]
+    data: ProductHeader[],
+    title: string
 }
 
 export type ProductScreenState = { }

@@ -1,5 +1,6 @@
-import { ProductHeader } from "../../models/products";
+import { ProductHeader, ProductCategories } from "../../models/products";
 
 export type ProductsStateType = {
-    headerRecords: ProductHeader[]
+    headerRecords: ProductHeader[],
+    categoryRecords: ProductCategories[]
 }

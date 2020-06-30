@@ -20,6 +20,9 @@ export const CoreReduxInitialState: CoreReduxStateType = {
         productStack: {
             product: {
                 title: "Products"
+            },
+            productCatOne: {
+                title: "Product Category"
             }
         },
         settingsStack: {

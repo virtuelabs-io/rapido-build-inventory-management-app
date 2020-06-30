@@ -1,0 +1,17 @@
+[
+    {
+        "CategoryLevel": 1,
+        "CategoryName": "Watches",
+        "CategoryId": 1001
+    },
+    {
+        "CategoryLevel": 1,
+        "CategoryName": "Mobiles",
+        "CategoryId": 1002
+    },
+    {
+        "CategoryLevel": 1,
+        "CategoryName": "Furnitures",
+        "CategoryId": 1003
+    }
+]
