@@ -24,7 +24,7 @@ class ProductScreen extends React.Component<ProductScreenProps, ProductScreenSta
                 <FlatList
                 style={Styles.screen}
                 data={this.props.data}
-                renderItem={(order) => <Product data={order.item} onPress={() => console.log("Product pressed!!")} />}
+                renderItem={(product) => <Product data={product.item} onPress={() => console.log(product.item.ProductTitle)} />}
                 keyExtractor={order => order.SKUNumber.toString()}
             />
                 </View>

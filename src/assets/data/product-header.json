@@ -1,8 +1,21 @@
 [
     {
+        "CategoryLevel": 1,
+        "CategoryName": "Watches",
         "SKUNumber": 100001,
-        "ProductTitle": "Diesel Mens Smartwatch with Leather Strap DZT2009",
-        "InStockQty": 20
+        "ProductTitle": "Samsung Galaxy Watch Active 40mm Silver",
+        "InStockQty": 30,
+        "Products": [{
+                "SKUNumber": 100001,
+                "ProductTitle": "Diesel Mens Smartwatch with Leather Strap DZT2009",
+                "InStockQty": 20
+            }, {
+                "SKUNumber": 100002,
+                "ProductTitle": "Samsung Galaxy Watch Active 40mm Silver",
+                "InStockQty": 30
+            }
+        ]
+        
     },
     {
         "SKUNumber": 100002,

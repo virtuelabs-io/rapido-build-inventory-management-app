@@ -23,9 +23,9 @@ export class Product extends React.Component<ProductProps, ProductState> {
                 <View style={Styles.leftContainer}>
                     <View style={Styles.orderNumberContainer}>
                         <Feather name="box" size={20} color={Colors.primary} />
-                        <RTitleText> {this.props.data.ProductTitle}</RTitleText>
+                        <RTitleText> {this.props.data.SKUNumber}</RTitleText>
                     </View>
-                    <RText>{this.props.data.SKUNumber}</RText>
+                    <RText>{this.props.data.ProductTitle}</RText>
                     <DueDate>{this.props.data.InStockQty}</DueDate>
                 </View>
                 {/* <View style={Styles.rightContainer}>
