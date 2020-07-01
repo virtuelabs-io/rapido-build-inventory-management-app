@@ -27,6 +27,9 @@ export type ProductStackNavigationParamsType = {
     },
     productCatOne: {
         title: string
+    },
+    addProductCat: {
+        title: string
     }
 }
 

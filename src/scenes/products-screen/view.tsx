@@ -21,14 +21,12 @@ class ProductScreen extends React.Component<ProductScreenProps, ProductScreenSta
     render(): React.ReactNode {
         return (
             <SafeAreaView style={Styles.screen}>
-                
                 <FlatList
                 style={Styles.screen}
                 data={this.props.data}
                 renderItem={(product) => <Product data={product.item} onPress={() => console.log("Hi")} />}
                 keyExtractor={(product) => product.SKUNumber.toString()}
             />
-               
             </SafeAreaView>
         )
     }

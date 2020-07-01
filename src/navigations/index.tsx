@@ -86,7 +86,8 @@ class AppNavigation extends React.Component<AppNavigationProps, AppNavigationSta
 
 const mapStatetoProps = (state: AppState, localProps: AppNavigationProps): AppNavigationProps => {
     return {
-        core: state.core
+        core: state.core,
+        product: state.products
     }
 }
 

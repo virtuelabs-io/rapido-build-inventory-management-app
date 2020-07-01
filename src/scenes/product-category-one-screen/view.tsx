@@ -16,9 +16,17 @@ class ProductCategoryOneScreen extends React.Component<ProductCategoryOneScreenP
 
     constructor(props: ProductCategoryOneScreenProps, state: ProductCategoryOneScreenState) {
         super(props)
-        this.props.navigation.setOptions(getStackStyles(
-            this.props.title
-        ))
+        var options = getStackStyles(
+            this.props.title,
+            "plus",
+            () => {
+                // @ts-ignore
+                // REASON: state picked up from redux
+                this.props.navigation.navigate("addProductCat")
+            }
+        )
+
+        this.props.navigation.setOptions(options)
     }
 
     handleCatNavigation = (item: any) => {
@@ -26,8 +34,6 @@ class ProductCategoryOneScreen extends React.Component<ProductCategoryOneScreenP
             title: item
         })
     }
-
-
 
     render(): React.ReactNode {
         return (

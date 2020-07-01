@@ -63,7 +63,8 @@ const Constants = {
             settings: "settings",
             profile: "profile",
             privacyPolicy: "Privacy Policy",
-            ProductCategoryOneScreen: "Product Category 1"
+            ProductCategoryOneScreen: "Product Category 1",
+            AddProductCategory: "Add Category"
         }
     }
 }
