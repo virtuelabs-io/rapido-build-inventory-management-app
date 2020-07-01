@@ -22,7 +22,7 @@ export const CoreReduxInitialState: CoreReduxStateType = {
                 title: "Products"
             },
             productCatOne: {
-                title: "Product Category"
+                title: "Categories"
             },
             addProductCat: {
                 title: "Add Category"

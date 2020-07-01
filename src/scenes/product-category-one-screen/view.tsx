@@ -1,18 +1,21 @@
 import React, { Dispatch } from 'react'
-import { ScrollView, View, TouchableWithoutFeedback, Text, FlatList } from 'react-native'
-import { ListItem, SearchBar, Avatar } from "react-native-elements";
-import { List, Body } from 'native-base'
+import { ScrollView, View, Text, FlatList } from 'react-native'
 import Styles from './styles'
 import { ProductCategoryOneScreenProps, ProductCategoryOneScreenState, ProductCategoryOneScreenDispatchProps } from './types'
 import { AppState, AppActionTypes } from '../../store';
 import { connect } from 'react-redux';
 import { getStackStyles } from '../../commons/styles/stack-style-constants';
-import { Order } from '@virtuelabs-io/rapido-modules/src/components/organisms/order/view';
-import { Product } from '../../components/organisms/product/view';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Search } from '@virtuelabs-io/rapido-modules/src/components/atoms/search/view';
+import { Feather } from '@expo/vector-icons';
+import { Colors } from '@virtuelabs-io/rapido-modules/src/commons/styles/colors';
 
 class ProductCategoryOneScreen extends React.Component<ProductCategoryOneScreenProps, ProductCategoryOneScreenState> {
+
+    state = {
+        searchInput: ""
+    }
 
     constructor(props: ProductCategoryOneScreenProps, state: ProductCategoryOneScreenState) {
         super(props)
@@ -22,7 +25,9 @@ class ProductCategoryOneScreen extends React.Component<ProductCategoryOneScreenP
             () => {
                 // @ts-ignore
                 // REASON: state picked up from redux
-                this.props.navigation.navigate("addProductCat")
+                this.props.navigation.navigate("addProductCat", {
+                    title: 'Main'
+                })
             }
         )
 
@@ -35,9 +40,19 @@ class ProductCategoryOneScreen extends React.Component<ProductCategoryOneScreenP
         })
     }
 
+    searchText = (partialAssignee: string) => {
+        this.setState({ searchInput: partialAssignee })
+        console.log(`Searched partial text is ${partialAssignee}`)
+    }
+
     render(): React.ReactNode {
         return (
             <SafeAreaView style={Styles.container}>
+                <Search 
+                    value={this.state.searchInput}
+                    placeHolder="Search"
+                    keyboardType="name-phone-pad"
+                    onChange={this.searchText} />
                 <FlatList
                     data={this.props.data}
                     renderItem={({ item }) => {

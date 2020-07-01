@@ -8,25 +8,27 @@ const Styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        marginHorizontal: 10,
+        margin: 10,
+        marginTop: 10
     },
-    settingsItemContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
+    viewInput: {
+        justifyContent: 'flex-start',
+        alignItems: "stretch",
+        flexWrap: 'nowrap',
         width: "100%",
-        paddingVertical: 10,
-        borderBottomWidth: 0.5,
-        borderColor: Colors.codes.silver
-    },
-    settingsInfoContainer: {
         flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'flex-start'
+        marginBottom: 10
     },
-    itemTextStyle: {
+    input: {
+        borderRadius: 10,
+        borderWidth: 2,
+        width: '60%',
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        marginHorizontal: 10,
+        borderColor: 'black',
         fontFamily: Utils.getFontFamily(),
-        fontSize: 22
+        fontSize: 15
     }
 })
 
