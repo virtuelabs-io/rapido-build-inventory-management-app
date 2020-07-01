@@ -12,7 +12,6 @@ class ProductScreen extends React.Component<ProductScreenProps, ProductScreenSta
 
     constructor(props: ProductScreenProps, state: ProductScreenState) {
         super(props)
-        console.log(this.props.route.params.title)
         this.props.navigation.setOptions(getStackStyles(
             this.props.title
         ))

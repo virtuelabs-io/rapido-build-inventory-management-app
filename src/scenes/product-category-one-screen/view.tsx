@@ -72,7 +72,6 @@ class ProductCategoryOneScreen extends React.Component<ProductCategoryOneScreenP
 }
 
 const mapStatetoProps = (state: AppState, localProps: ProductCategoryOneScreenProps): ProductCategoryOneScreenProps => {
-    console.log(state.products)
     return {
         ...localProps,
         data: state.products.categoryRecords,

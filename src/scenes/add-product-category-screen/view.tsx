@@ -19,6 +19,8 @@ import { MultiLineInput } from '@virtuelabs-io/rapido-modules/src/components/ato
 import { EditHolder } from '@virtuelabs-io/rapido-modules/src/components/molecules/edit-holder/view';
 import { RText } from '@virtuelabs-io/rapido-modules/src/components/atoms/r-text/view';
 import { RButton, Search } from '@virtuelabs-io/rapido-modules/src/components/atoms';
+import { addCategory, addCategoryAction } from '../../store/products/actions';
+import { setOTP } from '../../store/core/actions';
 
 class AddProductCategoryScreen extends React.Component<AddProductCategoryScreenProps, AddProductCategoryScreenState> {
 
@@ -57,8 +59,10 @@ class AddProductCategoryScreen extends React.Component<AddProductCategoryScreenP
                         <TextInput style={Styles.input} value={this.state.addCategory}
                         onChangeText={this.handleAddCategory} />
                     </View>
-                    <RButton name="Save" onPress={() => console.log()} />
-                    
+                    <RButton name="Save" onPress={() => {
+                        this.props.addCategory(this.state.addCategory)
+                        this.props.navigation.goBack()
+                    }} />
                 </Card>
             </View>
         )
@@ -75,7 +79,7 @@ const mapStatetoProps = (state: AppState, localProps: AddProductCategoryScreenPr
 
 const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): AddProductCategoryScreenDispatchProps => {
     return {
-
+        addCategory: (category: string) => dispatch(addCategory(category))
     }
 }
 

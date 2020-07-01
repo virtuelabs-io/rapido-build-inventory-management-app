@@ -13,7 +13,7 @@ export type AddProductCategoryScreenDataProps = {
 export type AddProductCategoryScreenState = { }
 
 export type AddProductCategoryScreenDispatchProps = {
-    
+    addCategory: (category: string) => void
  }
 
 export type AddProductCategoryScreenProps =
