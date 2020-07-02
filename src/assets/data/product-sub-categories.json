@@ -1,0 +1,38 @@
+[
+    {
+        "CategoryLevel": 2,
+        "SubCategoryName": "Men",
+        "CategoryId": 1001,
+        "SubCategoryId": "1001a"
+    },
+    {
+        "CategoryLevel": 2,
+        "SubCategoryName": "Women",
+        "CategoryId": 1001,
+        "SubCategoryId": "1001b"
+    },
+    {
+        "CategoryLevel": 2,
+        "SubCategoryName": "Samsung",
+        "CategoryId": 1002,
+        "SubCategoryId": "1002a"
+    },
+    {
+        "CategoryLevel": 2,
+        "SubCategoryName": "iPhone",
+        "CategoryId": 1002,
+        "SubCategoryId": "1002b"
+    },
+    {
+        "CategoryLevel": 2,
+        "SubCategoryName": "Cots",
+        "CategoryId": 1003,
+        "SubCategoryId": "1003a"
+    },
+    {
+        "CategoryLevel": 2,
+        "SubCategoryName": "Sofas",
+        "CategoryId": 1003,
+        "SubCategoryId": "1003b"
+    }
+]

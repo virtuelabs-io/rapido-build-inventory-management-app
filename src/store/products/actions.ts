@@ -2,6 +2,7 @@
 export const SET_ALL_PRODUCT_HEADERS = 'SET_ALL_PRODUCT_HEADERS'
 export const ADD_MAIN_CATEGORY = 'ADD_MAIN_CATEGORY'
 export const SEARCH_MAIN_CATEGORY = 'SEARCH_MAIN_CATEGORY'
+export const SEARCH_SUB_CATEGORY = 'SEARCH_SUB_CATEGORY'
 
 export interface SetAllProductHeaders {
     type: typeof SET_ALL_PRODUCT_HEADERS
@@ -15,6 +16,11 @@ export interface addCategoryAction {
 
 export interface mainCategorySearch {
     type: typeof SEARCH_MAIN_CATEGORY
+    search: string
+}
+
+export interface subCategorySearch {
+    type: typeof SEARCH_SUB_CATEGORY
     search: string
 }
 
@@ -39,7 +45,15 @@ export const mainCategorySearch = (value: string): ProductsActionTypes => {
     }
 }
 
+export const subCategorySearch = (value: string): ProductsActionTypes => {
+    return {
+        type: SEARCH_SUB_CATEGORY,
+        search: value
+    }
+}
+
 export type ProductsActionTypes = 
     SetAllProductHeaders
     | addCategoryAction
     | mainCategorySearch
+    | subCategorySearch

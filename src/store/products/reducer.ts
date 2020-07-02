@@ -1,4 +1,4 @@
-import { ProductsActionTypes, SET_ALL_PRODUCT_HEADERS, ADD_MAIN_CATEGORY, SEARCH_MAIN_CATEGORY } from './actions';
+import { ProductsActionTypes, SET_ALL_PRODUCT_HEADERS, ADD_MAIN_CATEGORY, SEARCH_MAIN_CATEGORY, SEARCH_SUB_CATEGORY } from './actions';
 import { ProductsInitialState } from './data'
 import { ProductsStateType } from './types';
 import { DummyData } from '../../models';
@@ -30,6 +30,15 @@ const searchMainCategory = (state: ProductsStateType, search: string): ProductsS
     }
 }
 
+const searchSubCategory = (state: ProductsStateType, search: string): ProductsStateType => {
+    state.subCategoryRecords = DummyData.ProductSubCategories
+    var searchedCat = state.subCategoryRecords.filter((category) => (category.SubCategoryName.toLowerCase().includes(search.toLowerCase())  ))
+    return {
+        ...state,
+         subCategoryRecords: searchedCat
+    }
+}
+
 export const ProductsReducer = (state = ProductsInitialState, action: ProductsActionTypes): ProductsStateType => {
     switch (action.type) {
         case SET_ALL_PRODUCT_HEADERS:
@@ -38,6 +47,8 @@ export const ProductsReducer = (state = ProductsInitialState, action: ProductsAc
             return updateMainCategories(state, action.category)
         case SEARCH_MAIN_CATEGORY:
             return searchMainCategory(state, action.search)
+        case SEARCH_SUB_CATEGORY:
+            return searchSubCategory(state, action.search)    
         default:
             return state
     }

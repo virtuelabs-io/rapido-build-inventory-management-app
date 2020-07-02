@@ -23,7 +23,9 @@ export type AuthStackNavigationParamsType = {
 
 export type ProductStackNavigationParamsType = {
     product: {
-        title: string
+        title: string,
+        mainCatId: number,
+        subCatId: string
     },
     productCatOne: {
         title: string

@@ -4,5 +4,6 @@ import { DummyData } from '../../models/dummy-data';
 
 export const ProductsInitialState: ProductsStateType = {
     headerRecords: DummyData.productHeaderDetails,
-    categoryRecords: DummyData.ProductCategoryDetails
+    categoryRecords: DummyData.ProductCategoryDetails,
+    subCategoryRecords: DummyData.ProductSubCategories
 }

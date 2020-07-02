@@ -10,7 +10,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Search } from '@virtuelabs-io/rapido-modules/src/components/atoms/search/view';
 import { Feather } from '@expo/vector-icons';
 import { Colors } from '@virtuelabs-io/rapido-modules/src/commons/styles/colors';
-import { mainCategorySearch } from '../../store/products/actions';
+import { mainCategorySearch, subCategorySearch } from '../../store/products/actions';
 
 class ProductCategorySubScreen extends React.Component<ProductCategorySubScreenProps, ProductCategorySubScreenState> {
 
@@ -27,7 +27,7 @@ class ProductCategorySubScreen extends React.Component<ProductCategorySubScreenP
                 // @ts-ignore
                 // REASON: state picked up from redux
                 this.props.navigation.navigate("addProductCat", {
-                    title: 'Main'
+                    title: 'Sub'
                 })
             }
         )
@@ -37,14 +37,16 @@ class ProductCategorySubScreen extends React.Component<ProductCategorySubScreenP
 
     handleCatNavigation = (item: any) => {
         this.props.navigation.navigate("product", {
-            title: item
+            title: "Products",
+            mainCatId: item.CategoryId,
+            subCatId: item.SubCategoryId
         })
     }
 
     searchText = (searchText: string) => {
         this.setState({ searchInput: searchText })
         console.log(`Searched partial text is ${searchText}`)
-        this.props.mainCategorySearch(searchText)
+        this.props.subCategorySearch(searchText)
     }
 
     render(): React.ReactNode {
@@ -59,14 +61,14 @@ class ProductCategorySubScreen extends React.Component<ProductCategorySubScreenP
                     data={this.props.data}
                     renderItem={({ item }) => {
                         return (
-                            <TouchableOpacity style={Styles.settingsItemContainer} onPress={() => this.handleCatNavigation(item.CategoryId)}>
+                            <TouchableOpacity style={Styles.settingsItemContainer} onPress={() => this.handleCatNavigation(item)}>
                                 <View style={Styles.settingsInfoContainer}>
-                                    <Text style={Styles.itemTextStyle}>   {item.CategoryName}</Text>
+                                    <Text style={Styles.itemTextStyle}>   {item.SubCategoryName}</Text>
                                 </View>
                             </TouchableOpacity>
                         )
                     }}
-                    keyExtractor={item => item.CategoryId.toString()}
+                    keyExtractor={item => item.SubCategoryId}
                 />
             </SafeAreaView>
         )
@@ -76,14 +78,14 @@ class ProductCategorySubScreen extends React.Component<ProductCategorySubScreenP
 const mapStatetoProps = (state: AppState, localProps: ProductCategorySubScreenProps): ProductCategorySubScreenProps => {
     return {
         ...localProps,
-        data: state.products.categoryRecords,
+        data: state.products.subCategoryRecords.filter(product => product.CategoryId == localProps.route.params.mainCatId),
         title: state.core.rootStackParams.productStack.productCatSub.title
     }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): ProductCategorySubScreenDispatchProps => {
     return {
-        mainCategorySearch: (category: string) => dispatch(mainCategorySearch(category))
+        subCategorySearch: (category: string) => dispatch(subCategorySearch(category))
     }
 }
 

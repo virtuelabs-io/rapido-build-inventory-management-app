@@ -19,7 +19,9 @@ export const CoreReduxInitialState: CoreReduxStateType = {
         },
         productStack: {
             product: {
-                title: "Products"
+                title: "Products",
+                mainCatId: 0,
+                subCatId: ""
             },
             productCatOne: {
                 title: "Categories"
