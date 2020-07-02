@@ -13,7 +13,7 @@ export type ProductCategoryOneScreenDataProps = {
 export type ProductCategoryOneScreenState = { }
 
 export type ProductCategoryOneScreenDispatchProps = {
-    
+    mainCategorySearch: (category: string) => void
  }
 
 export type ProductCategoryOneScreenProps =

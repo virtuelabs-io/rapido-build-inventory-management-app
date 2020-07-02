@@ -1,4 +1,4 @@
-import { ProductsActionTypes, SET_ALL_PRODUCT_HEADERS, ADD_MAIN_CATEGORY } from './actions';
+import { ProductsActionTypes, SET_ALL_PRODUCT_HEADERS, ADD_MAIN_CATEGORY, SEARCH_MAIN_CATEGORY } from './actions';
 import { ProductsInitialState } from './data'
 import { ProductsStateType } from './types';
 import { DummyData } from '../../models';
@@ -21,12 +21,25 @@ const updateMainCategories = (state: ProductsStateType, category: string): Produ
     }
 }
 
+const searchMainCategory = (state: ProductsStateType, search: string): ProductsStateType => {
+    console.log('inside reducer function of search category--------')
+    state.categoryRecords = DummyData.ProductCategoryDetails
+    console.log(state.categoryRecords)
+    var searchedCat = state.categoryRecords.filter((category) => (category.CategoryName.toLowerCase().includes(search.toLowerCase())  ))
+    return {
+        ...state,
+         categoryRecords: searchedCat
+    }
+}
+
 export const ProductsReducer = (state = ProductsInitialState, action: ProductsActionTypes): ProductsStateType => {
     switch (action.type) {
         case SET_ALL_PRODUCT_HEADERS:
             return updateAllProductHeaderDetails(state, action.data)
         case ADD_MAIN_CATEGORY:
             return updateMainCategories(state, action.category)
+        case SEARCH_MAIN_CATEGORY:
+            return searchMainCategory(state, action.search)
         default:
             return state
     }

@@ -10,6 +10,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Search } from '@virtuelabs-io/rapido-modules/src/components/atoms/search/view';
 import { Feather } from '@expo/vector-icons';
 import { Colors } from '@virtuelabs-io/rapido-modules/src/commons/styles/colors';
+import { mainCategorySearch } from '../../store/products/actions';
 
 class ProductCategoryOneScreen extends React.Component<ProductCategoryOneScreenProps, ProductCategoryOneScreenState> {
 
@@ -40,9 +41,10 @@ class ProductCategoryOneScreen extends React.Component<ProductCategoryOneScreenP
         })
     }
 
-    searchText = (partialAssignee: string) => {
-        this.setState({ searchInput: partialAssignee })
-        console.log(`Searched partial text is ${partialAssignee}`)
+    searchText = (searchText: string) => {
+        this.setState({ searchInput: searchText })
+        console.log(`Searched partial text is ${searchText}`)
+        this.props.mainCategorySearch(searchText)
     }
 
     render(): React.ReactNode {
@@ -81,7 +83,7 @@ const mapStatetoProps = (state: AppState, localProps: ProductCategoryOneScreenPr
 
 const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): ProductCategoryOneScreenDispatchProps => {
     return {
-
+        mainCategorySearch: (category: string) => dispatch(mainCategorySearch(category))
     }
 }
 
