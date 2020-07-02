@@ -4,6 +4,8 @@ import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
 import ProductScreen  from '../../scenes/products-screen/view'
 import ProductCategoryOneScreen from '../../scenes/product-category-one-screen/view'
 import AddProductCategoryScreen from '../../scenes/add-product-category-screen/view'
+import ProductCategorySubScreen from '../../scenes/product-category-sub-screen/view'
+
 
 
 const ProductStackNavigator = createStackNavigator<ProductStackNavigationParamsType>();
@@ -32,6 +34,11 @@ export class ProductStackNavigation extends React.Component<ProductStackScreenPr
                     name="addProductCat"
                     component={AddProductCategoryScreen}
                     initialParams={this.props.route.params.addProductCat}
+                />
+                <ProductStackNavigator.Screen
+                    name="productCatSub"
+                    component={ProductCategorySubScreen}
+                    initialParams={this.props.route.params.productCatSub}
                 />
 			</ProductStackNavigator.Navigator>
 		)

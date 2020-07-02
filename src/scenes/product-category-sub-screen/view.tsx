@@ -1,7 +1,7 @@
 import React, { Dispatch } from 'react'
 import { ScrollView, View, Text, FlatList } from 'react-native'
 import Styles from './styles'
-import { ProductCategoryOneScreenProps, ProductCategoryOneScreenState, ProductCategoryOneScreenDispatchProps } from './types'
+import { ProductCategorySubScreenProps, ProductCategorySubScreenState, ProductCategorySubScreenDispatchProps } from './types'
 import { AppState, AppActionTypes } from '../../store';
 import { connect } from 'react-redux';
 import { getStackStyles } from '../../commons/styles/stack-style-constants';
@@ -12,13 +12,13 @@ import { Feather } from '@expo/vector-icons';
 import { Colors } from '@virtuelabs-io/rapido-modules/src/commons/styles/colors';
 import { mainCategorySearch } from '../../store/products/actions';
 
-class ProductCategoryOneScreen extends React.Component<ProductCategoryOneScreenProps, ProductCategoryOneScreenState> {
+class ProductCategorySubScreen extends React.Component<ProductCategorySubScreenProps, ProductCategorySubScreenState> {
 
     state = {
         searchInput: ""
     }
 
-    constructor(props: ProductCategoryOneScreenProps, state: ProductCategoryOneScreenState) {
+    constructor(props: ProductCategorySubScreenProps, state: ProductCategorySubScreenState) {
         super(props)
         var options = getStackStyles(
             this.props.title,
@@ -36,13 +36,8 @@ class ProductCategoryOneScreen extends React.Component<ProductCategoryOneScreenP
     }
 
     handleCatNavigation = (item: any) => {
-        // this.props.navigation.navigate("product", {
-        //     title: item
-        // }) 
-
-        this.props.navigation.navigate("productCatSub", {
-            title: 'Subcategory',
-            mainCatId: item
+        this.props.navigation.navigate("product", {
+            title: item
         })
     }
 
@@ -78,18 +73,18 @@ class ProductCategoryOneScreen extends React.Component<ProductCategoryOneScreenP
     }
 }
 
-const mapStatetoProps = (state: AppState, localProps: ProductCategoryOneScreenProps): ProductCategoryOneScreenProps => {
+const mapStatetoProps = (state: AppState, localProps: ProductCategorySubScreenProps): ProductCategorySubScreenProps => {
     return {
         ...localProps,
         data: state.products.categoryRecords,
-        title: state.core.rootStackParams.productStack.productCatOne.title
+        title: state.core.rootStackParams.productStack.productCatSub.title
     }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): ProductCategoryOneScreenDispatchProps => {
+const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): ProductCategorySubScreenDispatchProps => {
     return {
         mainCategorySearch: (category: string) => dispatch(mainCategorySearch(category))
     }
 }
 
-export default connect(mapStatetoProps, mapDispatchToProps)(ProductCategoryOneScreen)
+export default connect(mapStatetoProps, mapDispatchToProps)(ProductCategorySubScreen)

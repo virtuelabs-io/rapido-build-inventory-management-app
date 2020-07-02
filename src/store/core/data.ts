@@ -26,6 +26,10 @@ export const CoreReduxInitialState: CoreReduxStateType = {
             },
             addProductCat: {
                 title: "Add Category"
+            },
+            productCatSub: {
+                title: "Sub Categories",
+                mainCatId: 0
             }
         },
         settingsStack: {

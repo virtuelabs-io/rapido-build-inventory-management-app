@@ -22,9 +22,7 @@ const updateMainCategories = (state: ProductsStateType, category: string): Produ
 }
 
 const searchMainCategory = (state: ProductsStateType, search: string): ProductsStateType => {
-    console.log('inside reducer function of search category--------')
     state.categoryRecords = DummyData.ProductCategoryDetails
-    console.log(state.categoryRecords)
     var searchedCat = state.categoryRecords.filter((category) => (category.CategoryName.toLowerCase().includes(search.toLowerCase())  ))
     return {
         ...state,
