@@ -27,7 +27,8 @@ class ProductCategorySubScreen extends React.Component<ProductCategorySubScreenP
                 // @ts-ignore
                 // REASON: state picked up from redux
                 this.props.navigation.navigate("addProductCat", {
-                    title: 'Sub'
+                    title: 'Sub',
+                    catId: this.props.route.params.mainCatId
                 })
             }
         )

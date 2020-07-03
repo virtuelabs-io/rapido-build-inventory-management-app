@@ -14,6 +14,7 @@ export type AddProductCategoryScreenState = { }
 
 export type AddProductCategoryScreenDispatchProps = {
     addCategory: (category: string) => void
+    addSubCategory: (category: string, categoryId: number) => void
  }
 
 export type AddProductCategoryScreenProps =

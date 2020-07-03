@@ -19,7 +19,7 @@ import { MultiLineInput } from '@virtuelabs-io/rapido-modules/src/components/ato
 import { EditHolder } from '@virtuelabs-io/rapido-modules/src/components/molecules/edit-holder/view';
 import { RText } from '@virtuelabs-io/rapido-modules/src/components/atoms/r-text/view';
 import { RButton, Search } from '@virtuelabs-io/rapido-modules/src/components/atoms';
-import { addCategory, addCategoryAction } from '../../store/products/actions';
+import { addCategory, addCategoryAction, addSubCategory } from '../../store/products/actions';
 import { setOTP } from '../../store/core/actions';
 
 class AddProductCategoryScreen extends React.Component<AddProductCategoryScreenProps, AddProductCategoryScreenState> {
@@ -38,14 +38,13 @@ class AddProductCategoryScreen extends React.Component<AddProductCategoryScreenP
     }
 
     handleCatNavigation = (item: any) => {
-        this.props.navigation.navigate("product", {
-            title: item
-        })
+        // this.props.navigation.navigate("product", {
+        //     title: item
+        // })
     }
 
-    handleAddCategory = (partialAssignee: string) => {
-        this.setState({ addCategory: partialAssignee })
-        console.log(`Searched partial text is ${partialAssignee}`)
+    handleAddCategory = (category: string) => {
+        this.setState({ addCategory: category })
     }
 
     render(): React.ReactNode {
@@ -60,7 +59,12 @@ class AddProductCategoryScreen extends React.Component<AddProductCategoryScreenP
                         onChangeText={this.handleAddCategory} />
                     </View>
                     <RButton name="Save" onPress={() => {
-                        this.props.addCategory(this.state.addCategory)
+                        if(this.props.route.params.title == 'Main') {
+                            this.props.addCategory(this.state.addCategory)
+                        } else {
+                            console.log(this.state.addCategory)
+                            this.props.addSubCategory(this.state.addCategory, this.props.route.params.catId)
+                        }
                         this.props.navigation.goBack()
                     }} />
                 </Card>
@@ -79,7 +83,8 @@ const mapStatetoProps = (state: AppState, localProps: AddProductCategoryScreenPr
 
 const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): AddProductCategoryScreenDispatchProps => {
     return {
-        addCategory: (category: string) => dispatch(addCategory(category))
+        addCategory: (category: string) => dispatch(addCategory(category)),
+        addSubCategory: (category: string, categoryId: number) => dispatch(addSubCategory(category, categoryId))
     }
 }
 

@@ -27,7 +27,8 @@ export const CoreReduxInitialState: CoreReduxStateType = {
                 title: "Categories"
             },
             addProductCat: {
-                title: "Add Category"
+                title: "Add Category",
+                catId: 0
             },
             productCatSub: {
                 title: "Sub Categories",
