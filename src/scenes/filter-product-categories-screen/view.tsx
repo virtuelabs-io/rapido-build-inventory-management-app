@@ -40,7 +40,7 @@ class FilterProductCategoriesScreen extends React.Component<FilterProductCategor
 const mapStatetoProps = (state: AppState, localProps: FilterProductCategoriesScreenProps): FilterProductCategoriesScreenProps => {
     return {
         ...localProps,
-        options: state.products.ProductsFilters.filterProductCategories
+        options: state.products.categoryRecords
     }
 }
 

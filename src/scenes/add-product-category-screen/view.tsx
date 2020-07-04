@@ -77,7 +77,7 @@ const mapStatetoProps = (state: AppState, localProps: AddProductCategoryScreenPr
     return {
         ...localProps,
         data: state.products.categoryRecords,
-        title: state.core.rootStackParams.productStack.addProductCat.title
+        title: state.core.rootStackParams.categorizationStack.addProductCat.title
     }
 }
 

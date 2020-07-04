@@ -2,7 +2,7 @@ import { ProductHeader, ProductCategories, ProductSubCategories } from "../../mo
 import { DummyData } from "../../models";
 
 export type ProductsFilters = {
-    filterProductCategories: typeof DummyData.ProductCategoryDetails
+    filterProductCategories: string
 }
 
 export type ProductsStateType = {
