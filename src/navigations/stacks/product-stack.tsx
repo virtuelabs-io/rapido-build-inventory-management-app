@@ -3,6 +3,7 @@ import { ProductStackNavigationParamsType, RootStackParamsType } from '../../sto
 import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
 import ProductScreen  from '../../scenes/products-screen/view'
 import FilterProductsScreen from '../../scenes/filter-products-screen/view'
+import FilterProductCategoriesScreen from '../../scenes/filter-product-categories-screen/view'
 
 
 
@@ -27,7 +28,12 @@ export class ProductStackNavigation extends React.Component<ProductStackScreenPr
                     name="filterProducts"
                     component={FilterProductsScreen}
                     initialParams={this.props.route.params.filterProducts}
-                />
+                /> 
+				<ProductStackNavigator.Screen
+                    name="filterProductCategories"
+                    component={FilterProductCategoriesScreen}
+                    initialParams={this.props.route.params.filterProducts}
+                /> 
 			</ProductStackNavigator.Navigator>
 		)
 	}

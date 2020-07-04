@@ -25,6 +25,9 @@ export const CoreReduxInitialState: CoreReduxStateType = {
             },
             filterProducts: {
                 title: 'Filters'
+            },
+            filterProductCategories: {
+                title: 'Categories'
             }
         },
 

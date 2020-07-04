@@ -24,7 +24,9 @@ class FilterProductsScreen extends React.Component<FilterProductsScreenProps, Fi
     orderNumberFilterScreenNavigationHandler = () => {
         // @ts-ignore
         // REASON: state picked up from redux
-        this.props.navigation.navigate('orderNumberFilter')
+        this.props.navigation.navigate('filterProductCategories',{
+            title: 'Categories'
+        })
     }
 
     assigneeFilterScreenNavigationHandler = () => {
@@ -42,7 +44,7 @@ class FilterProductsScreen extends React.Component<FilterProductsScreenProps, Fi
     orderStatusFilterScreenNavigationHandler = () => {
         // @ts-ignore
         // REASON: state picked up from redux
-        this.props.navigation.navigate('orderStatusFilter')
+        this.props.navigation.navigate('filterProductCategories')
     }
 
     createdOnFilterScreenNavigationHandler = () => {

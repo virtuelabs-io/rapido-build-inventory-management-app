@@ -29,6 +29,9 @@ export type ProductStackNavigationParamsType = {
     },
     filterProducts: {
         title: string
+    },
+    filterProductCategories: {
+        title: string
     }
 }
 
