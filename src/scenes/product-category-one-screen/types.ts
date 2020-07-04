@@ -1,9 +1,9 @@
 import { StackScreenProps } from '@react-navigation/stack';
-import { ProductStackNavigationParamsType } from '../../store/core/types'
+import { ProductStackNavigationParamsType, CategorizationStackNavigationParamsType } from '../../store/core/types'
 import { ProductCategories } from '../../models/products';
 
 
-export type ProductCategoryOneScreenParamProps = StackScreenProps<ProductStackNavigationParamsType, 'productCatOne'>
+export type ProductCategoryOneScreenParamProps = StackScreenProps<CategorizationStackNavigationParamsType, 'productCatOne'>
 
 export type ProductCategoryOneScreenDataProps = {
     data: ProductCategories[],

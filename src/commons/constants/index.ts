@@ -33,22 +33,22 @@ const Constants = {
     // },
     NAV: {
         stackNames: {
-            dashboardStack: {
-                name: "dashboardStack",
-                icon: "bar-chart-2",
-                package: "Feather",
-                displayText: "Dashboard"
-            },
             productStack: {
                 name: "productStack",
                 icon: "package",
                 package: "Feather",
                 displayText: "Products"
             },
+            categorizationStack: {
+                name: "categorizationStack",
+                icon: "folder",
+                package: "Feather",
+                displayText: "Categories"
+            },
             settingsStack: {
                 name: "settingsStack",
                 icon: "settings",
-                package: "feather",
+                package: "Feather",
                 displayText: "Settings"
             }
         },
@@ -65,7 +65,7 @@ const Constants = {
             privacyPolicy: "Privacy Policy",
             ProductCategoryOneScreen: "Category",
             AddProductCategory: "Add Category",
-            ProductCategorySubScreen: "Subcategory",
+            ProductCategorySubScreen: "Subcategory"
         }
     }
 }

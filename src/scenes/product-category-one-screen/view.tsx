@@ -1,5 +1,5 @@
 import React, { Dispatch } from 'react'
-import { ScrollView, View, Text, FlatList } from 'react-native'
+import { View, Text, FlatList } from 'react-native'
 import Styles from './styles'
 import { ProductCategoryOneScreenProps, ProductCategoryOneScreenState, ProductCategoryOneScreenDispatchProps } from './types'
 import { AppState, AppActionTypes } from '../../store';
@@ -8,8 +8,6 @@ import { getStackStyles } from '../../commons/styles/stack-style-constants';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Search } from '@virtuelabs-io/rapido-modules/src/components/atoms/search/view';
-import { Feather } from '@expo/vector-icons';
-import { Colors } from '@virtuelabs-io/rapido-modules/src/commons/styles/colors';
 import { mainCategorySearch } from '../../store/products/actions';
 
 class ProductCategoryOneScreen extends React.Component<ProductCategoryOneScreenProps, ProductCategoryOneScreenState> {
@@ -49,14 +47,13 @@ class ProductCategoryOneScreen extends React.Component<ProductCategoryOneScreenP
 
     searchText = (searchText: string) => {
         this.setState({ searchInput: searchText })
-        console.log(`Searched partial text is ${searchText}`)
         this.props.mainCategorySearch(searchText)
     }
 
     render(): React.ReactNode {
         return (
             <SafeAreaView style={Styles.container}>
-                <Search 
+                <Search
                     value={this.state.searchInput}
                     placeHolder="Search"
                     keyboardType="name-phone-pad"
@@ -70,6 +67,7 @@ class ProductCategoryOneScreen extends React.Component<ProductCategoryOneScreenP
                                     <Text style={Styles.itemTextStyle}>   {item.CategoryName}</Text>
                                 </View>
                             </TouchableOpacity>
+
                         )
                     }}
                     keyExtractor={item => item.CategoryId.toString()}
@@ -83,7 +81,7 @@ const mapStatetoProps = (state: AppState, localProps: ProductCategoryOneScreenPr
     return {
         ...localProps,
         data: state.products.categoryRecords,
-        title: state.core.rootStackParams.productStack.productCatOne.title
+        title: state.core.rootStackParams.categorizationStack.productCatOne.title
     }
 }
 

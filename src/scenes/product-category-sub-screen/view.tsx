@@ -80,7 +80,7 @@ const mapStatetoProps = (state: AppState, localProps: ProductCategorySubScreenPr
     return {
         ...localProps,
         data: state.products.subCategoryRecords.filter(product => product.CategoryId == localProps.route.params.mainCatId),
-        title: state.core.rootStackParams.productStack.productCatSub.title
+        title: state.core.rootStackParams.categorizationStack.productCatSub.title
     }
 }
 

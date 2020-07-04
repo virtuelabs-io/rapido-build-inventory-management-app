@@ -26,6 +26,12 @@ export type ProductStackNavigationParamsType = {
         title: string,
         mainCatId: number,
         subCatId: string
+    }
+}
+
+export type CategorizationStackNavigationParamsType = {
+    mainCategory: {
+        title: string
     },
     productCatOne: {
         title: string
@@ -37,6 +43,11 @@ export type ProductStackNavigationParamsType = {
     productCatSub: {
         title: string,
         mainCatId: number
+    },
+    product: {
+        title: string,
+        mainCatId: number,
+        subCatId: string
     }
 }
 
@@ -64,7 +75,8 @@ export type SettingsStackNavigationParamsType = {
 export type RootStackParamsType = {
     authStack: AuthStackNavigationParamsType,
     productStack: ProductStackNavigationParamsType,
-    settingsStack: SettingsStackNavigationParamsType
+    settingsStack: SettingsStackNavigationParamsType,
+    categorizationStack: CategorizationStackNavigationParamsType
 }
 
 export type CoreReduxStateType = {

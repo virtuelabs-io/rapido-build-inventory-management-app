@@ -22,6 +22,12 @@ export const CoreReduxInitialState: CoreReduxStateType = {
                 title: "Products",
                 mainCatId: 0,
                 subCatId: ""
+            }
+        },
+
+        categorizationStack: {
+            mainCategory: {
+                title: 'Category'
             },
             productCatOne: {
                 title: "Categories"
@@ -33,8 +39,15 @@ export const CoreReduxInitialState: CoreReduxStateType = {
             productCatSub: {
                 title: "Sub Categories",
                 mainCatId: 0
+            },
+            product: {
+                title: "Products",
+                mainCatId: 0,
+                subCatId: ""
             }
         },
+
+
         settingsStack: {
             settings: {
                 title: "Settings"

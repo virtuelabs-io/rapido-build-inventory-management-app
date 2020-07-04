@@ -16,8 +16,8 @@ const updateMainCategories = (state: ProductsStateType, category: string): Produ
          categoryRecords: [...state.categoryRecords, { 
             "CategoryLevel": 1,
             "CategoryName": category,
-            "CategoryId": 1004
-          }]
+            "CategoryId": Math.floor(1000 + Math.random() * 9000)
+        }]
     }
 }
 
@@ -40,15 +40,13 @@ const searchSubCategory = (state: ProductsStateType, search: string): ProductsSt
 }
 
 const updateSubCategory = (state: ProductsStateType, category: string, categoryId: number): ProductsStateType => {
-    console.log('-------Anirup-------')
-    console.log(category, categoryId)
     return {
         ...state,
          subCategoryRecords: [...state.subCategoryRecords, { 
             "CategoryLevel": 2,
             "SubCategoryName": category,
             "CategoryId": categoryId,
-            "SubCategoryId": categoryId+'a'
+            "SubCategoryId": Math.floor(1000 + Math.random() * 9000).toString()
           }]
     }
 }

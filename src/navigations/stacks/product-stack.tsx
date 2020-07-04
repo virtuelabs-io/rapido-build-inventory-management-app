@@ -19,27 +19,13 @@ export class ProductStackNavigation extends React.Component<ProductStackScreenPr
 
 	render(): React.ReactNode {
 		return (
-			<ProductStackNavigator.Navigator initialRouteName="productCatOne">
+			<ProductStackNavigator.Navigator initialRouteName="product">
                 <ProductStackNavigator.Screen
                     name="product"
                     component={ProductScreen}
                     initialParams={this.props.route.params.product}
                 />
-				<ProductStackNavigator.Screen
-                    name="productCatOne"
-                    component={ProductCategoryOneScreen}
-                    initialParams={this.props.route.params.productCatOne}
-                />
-				<ProductStackNavigator.Screen
-                    name="addProductCat"
-                    component={AddProductCategoryScreen}
-                    initialParams={this.props.route.params.addProductCat}
-                />
-                <ProductStackNavigator.Screen
-                    name="productCatSub"
-                    component={ProductCategorySubScreen}
-                    initialParams={this.props.route.params.productCatSub}
-                />
+				
 			</ProductStackNavigator.Navigator>
 		)
 	}

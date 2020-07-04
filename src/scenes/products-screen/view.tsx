@@ -34,7 +34,8 @@ class ProductScreen extends React.Component<ProductScreenProps, ProductScreenSta
 const mapStatetoProps = (state: AppState, localProps: ProductScreenProps): ProductScreenProps => {
     return {
         ...localProps,
-        data: state.products.headerRecords.filter(product => (product.CategoryId == localProps.route.params.mainCatId && product.SubCategoryId == localProps.route.params.subCatId )),
+        data: state.products.headerRecords,
+        //.filter(product => (product.CategoryId == localProps.route.params.mainCatId && product.SubCategoryId == localProps.route.params.subCatId )),
         title: localProps.route.params.title
     }
 }
