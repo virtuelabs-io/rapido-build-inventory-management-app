@@ -22,6 +22,9 @@ export const CoreReduxInitialState: CoreReduxStateType = {
                 title: "Products",
                 mainCatId: 0,
                 subCatId: ""
+            },
+            filterProducts: {
+                title: 'Filters'
             }
         },
 

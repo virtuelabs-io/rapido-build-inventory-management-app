@@ -26,6 +26,9 @@ export type ProductStackNavigationParamsType = {
         title: string,
         mainCatId: number,
         subCatId: string
+    },
+    filterProducts: {
+        title: string
     }
 }
 

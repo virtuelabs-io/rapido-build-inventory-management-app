@@ -7,14 +7,37 @@ import { connect } from 'react-redux';
 import { getStackStyles } from '../../commons/styles/stack-style-constants';
 import { Product } from '../../components/organisms/product/view';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { RAntIconButton } from '@virtuelabs-io/rapido-modules/src/components/atoms/r-ant-icon-button/view';
+import navigations from '../../navigations';
 
 class ProductScreen extends React.Component<ProductScreenProps, ProductScreenState> {
 
     constructor(props: ProductScreenProps, state: ProductScreenState) {
         super(props)
-        this.props.navigation.setOptions(getStackStyles(
-            this.props.title
-        ))
+        var options = getStackStyles(
+            this.props.title,
+            "plus",
+            () => {
+                 console.log('add products clicked !')
+            }
+        )
+        options = {
+            ...options,
+            headerLeft: () => (
+                <RAntIconButton
+                    icon="filter"
+                    size={28}
+                    onPress={() => {
+                        // @ts-ignore
+                        // REASON: state picked up from redux
+                        this.props.navigation.navigate('filterProducts', {
+                            title: "Filters"
+                        })
+                    }}
+                />
+            )
+        }
+        this.props.navigation.setOptions(options)
     }
 
     render(): React.ReactNode {

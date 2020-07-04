@@ -14,7 +14,7 @@ import { SettingsItem } from '@virtuelabs-io/rapido-modules/src/components/atoms
 class SettingsScreen extends React.Component<SettingsScreenProps, SettingsScreenState> {
     constructor(props: SettingsScreenProps) {
         super(props)
-       // this.props.navigation.setOptions(getStackStyles(this.props.route.params.title))
+        this.props.navigation.setOptions(getStackStyles(this.props.route.params.title))
     }
 
     profileNavigationHandler = () => {
