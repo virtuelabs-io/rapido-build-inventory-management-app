@@ -21,7 +21,15 @@ class FilterProductsScreen extends React.Component<FilterProductsScreenProps, Fi
         this.props.navigation.goBack()
     }
 
-    orderNumberFilterScreenNavigationHandler = () => {
+    SKUNumberFilterScreenNavigationHandler = () => {
+        // @ts-ignore
+        // REASON: state picked up from redux
+        this.props.navigation.navigate('filterSKUNumber',{
+            title: 'SKU Number'
+        })
+    }
+
+    productCategoriesFilterScreenNavigationHandler = () => {
         // @ts-ignore
         // REASON: state picked up from redux
         this.props.navigation.navigate('filterProductCategories',{
@@ -59,17 +67,17 @@ class FilterProductsScreen extends React.Component<FilterProductsScreenProps, Fi
                 <FilterHolder
                     icon="box"
                     filterTitle="SKU Number"
-                    navigationFunc={this.orderNumberFilterScreenNavigationHandler}
+                    navigationFunc={this.SKUNumberFilterScreenNavigationHandler}
                 />
                 <FilterHolder
                     icon="box"
                     filterTitle="Categories"
-                    navigationFunc={this.orderNumberFilterScreenNavigationHandler}
+                    navigationFunc={this.productCategoriesFilterScreenNavigationHandler}
                 />
                 <FilterHolder
                     icon="box"
                     filterTitle="Expected Purchases"
-                    navigationFunc={this.orderNumberFilterScreenNavigationHandler}
+                    navigationFunc={this.createdOnFilterScreenNavigationHandler}
                 />
                 <View style={Styles.buttonContianer}>
                     <RButton name="Filter" onPress={this.backNavigation} />

@@ -4,6 +4,7 @@ import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
 import ProductScreen  from '../../scenes/products-screen/view'
 import FilterProductsScreen from '../../scenes/filter-products-screen/view'
 import FilterProductCategoriesScreen from '../../scenes/filter-product-categories-screen/view'
+import FilterSKUNumberScreen from '../../scenes/filter-sku-number-screen/view'
 
 
 
@@ -32,7 +33,12 @@ export class ProductStackNavigation extends React.Component<ProductStackScreenPr
 				<ProductStackNavigator.Screen
                     name="filterProductCategories"
                     component={FilterProductCategoriesScreen}
-                    initialParams={this.props.route.params.filterProducts}
+                    initialParams={this.props.route.params.filterProductCategories}
+                />
+                <ProductStackNavigator.Screen
+                    name="filterSKUNumber"
+                    component={FilterSKUNumberScreen}
+                    initialParams={this.props.route.params.filterSKUNumber}
                 /> 
 			</ProductStackNavigator.Navigator>
 		)

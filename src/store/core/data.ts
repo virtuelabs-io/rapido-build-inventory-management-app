@@ -28,6 +28,9 @@ export const CoreReduxInitialState: CoreReduxStateType = {
             },
             filterProductCategories: {
                 title: 'Categories'
+            },
+            filterSKUNumber: {
+                title: 'SKU Number'
             }
         },
 
