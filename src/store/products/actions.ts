@@ -7,6 +7,7 @@ export const SEARCH_SUB_CATEGORY = 'SEARCH_SUB_CATEGORY'
 export const ADD_SUB_CATEGORY = 'ADD_SUB_CATEGORY'
 export const SET_PRODUCT_CATEGORY_FILTER = 'SET_PRODUCT_CATEGORY_FILTER'
 export const SET_FILTERS = 'SET_FILTERS'
+export const SET_SKU_NUMBER_FILTERS = 'SET_SKU_NUMBER_FILTERS'
 
 export interface SetAllProductHeaders {
     type: typeof SET_ALL_PRODUCT_HEADERS
@@ -42,6 +43,11 @@ export interface SetProductCategoryFilter {
 export interface SetFilter {
     type: typeof SET_FILTERS,
     productsFilters: ProductsFilters
+}
+
+export interface SetSKUNumberFilter {
+    type: typeof SET_SKU_NUMBER_FILTERS,
+    SKUNumber: number
 }
 
 export const SetAllProductHeaders = (data: any): ProductsActionTypes => {
@@ -94,6 +100,13 @@ export const setFilter = (productsFilters: ProductsFilters): ProductsActionTypes
     }
 }
 
+export const setSKUNumberFilter = (SKUNumber: number): ProductsActionTypes => {
+    return {
+        type: SET_SKU_NUMBER_FILTERS,
+        SKUNumber: SKUNumber
+    }
+}
+
 export type ProductsActionTypes = 
     SetAllProductHeaders
     | addCategoryAction
@@ -102,3 +115,4 @@ export type ProductsActionTypes =
     | addSubCategory
     | SetProductCategoryFilter
     | SetFilter
+    | SetSKUNumberFilter

@@ -1,4 +1,4 @@
-import { ProductsActionTypes, SET_ALL_PRODUCT_HEADERS, ADD_MAIN_CATEGORY, SEARCH_MAIN_CATEGORY, SEARCH_SUB_CATEGORY, ADD_SUB_CATEGORY, SET_PRODUCT_CATEGORY_FILTER, SET_FILTERS } from './actions';
+import { ProductsActionTypes, SET_ALL_PRODUCT_HEADERS, ADD_MAIN_CATEGORY, SEARCH_MAIN_CATEGORY, SEARCH_SUB_CATEGORY, ADD_SUB_CATEGORY, SET_PRODUCT_CATEGORY_FILTER, SET_FILTERS, SET_SKU_NUMBER_FILTERS } from './actions';
 import { ProductsInitialState } from './data'
 import { ProductsStateType, ProductsFilters } from './types';
 import { DummyData } from '../../models';
@@ -63,9 +63,21 @@ const setProductCategoryFilter = (state: ProductsStateType, category: string): P
 
 const setFilters = (state: ProductsStateType, productsFilters: ProductsFilters): ProductsStateType => {
     console.log(productsFilters.filterProductCategories +' products filter')
+    console.log(productsFilters.filterSKUNumber+ ' SKU Number filter')
     return {
         ...state,
         ProductsFilters: productsFilters
+    }
+}
+
+const setSKUNumberFilter = (state: ProductsStateType, SKUNumber: number): ProductsStateType => {
+    console.log(SKUNumber +' selected SKU Number')
+    return {
+        ...state,
+        ProductsFilters: {
+            ...state.ProductsFilters,
+            filterSKUNumber: SKUNumber
+        }
     }
 }
 
@@ -85,6 +97,8 @@ export const ProductsReducer = (state = ProductsInitialState, action: ProductsAc
             return setProductCategoryFilter(state, action.category)
         case SET_FILTERS:
             return setFilters(state, action.productsFilters)    
+        case SET_SKU_NUMBER_FILTERS:
+            return setSKUNumberFilter(state, action.SKUNumber)
         default:
             return state
     }

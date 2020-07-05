@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 // import { setOrderNumberFilter } from '../../store/orders/actions';
 import { Search } from '@virtuelabs-io/rapido-modules/src/components/atoms/search/view';
 import { SimpleListHolder } from '@virtuelabs-io/rapido-modules/src/components/atoms/simple-list-item/view';
+import { setSKUNumberFilter } from '../../store/products/actions';
 
 class FilterSKUNumberScreen extends React.Component<FilterSKUNumberScreenProps, FilterSKUNumberScreenState> {
 
@@ -30,8 +31,8 @@ class FilterSKUNumberScreen extends React.Component<FilterSKUNumberScreenProps, 
         console.log(`Searched partial order number is ${partialOrderNumber}`)
     }
 
-    selectOrderNumberAndNavigateBackHandler = (selectedOrder: string) => {
-        // this.props.setOrderNumber(Number(selectedOrder))
+    selectOrderNumberAndNavigateBackHandler = (selectedSKUNumber: string) => {
+        this.props.setSKUNumber(Number(selectedSKUNumber))
         this.props.navigation.goBack()
     }
 
@@ -58,7 +59,6 @@ class FilterSKUNumberScreen extends React.Component<FilterSKUNumberScreenProps, 
 }
 
 const mapStatetoProps = (state: AppState, localProps: FilterSKUNumberScreenProps): FilterSKUNumberScreenProps => {
-    console.log(state.products.headerRecords)
     var SKUNumbers: number[] = []
     state.products.headerRecords.forEach(category => SKUNumbers.push(category.SKUNumber))
     return {
@@ -69,7 +69,7 @@ const mapStatetoProps = (state: AppState, localProps: FilterSKUNumberScreenProps
 
 const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): FilterSKUNumberScreenDispatchProps => {
     return {
-        // setSKUNumber: (orderNumber: number) => dispatch(setSKUNumberFilter(orderNumber))
+        setSKUNumber: (SKUNumber: number) => dispatch(setSKUNumberFilter(SKUNumber))
     }
 }
 

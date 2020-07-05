@@ -12,7 +12,7 @@ export type FilterSKUNumberScreenDataProps = {
 }
 
 export type FilterSKUNumberScreenDispatchProps = {
-    // setSKUNumber: (orderNumber: number) => void
+    setSKUNumber: (SKUNumber: number) => void
  }
 
 export type FilterSKUNumberScreenProps =

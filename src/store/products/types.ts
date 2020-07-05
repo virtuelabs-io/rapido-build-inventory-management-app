@@ -2,7 +2,8 @@ import { ProductHeader, ProductCategories, ProductSubCategories } from "../../mo
 import { DummyData } from "../../models";
 
 export type ProductsFilters = {
-    filterProductCategories: string
+    filterProductCategories: string,
+    filterSKUNumber: number
 }
 
 export type ProductsStateType = {
