@@ -13,7 +13,7 @@ const updateAllProductHeaderDetails = (state: ProductsStateType, data: any): Pro
 const updateMainCategories = (state: ProductsStateType, category: string): ProductsStateType => {
     return {
         ...state,
-         categoryRecords: [...state.categoryRecords, { 
+        categoryRecords: [...state.categoryRecords, {
             "CategoryLevel": 1,
             "CategoryName": category,
             "CategoryId": Math.floor(1000 + Math.random() * 9000)
@@ -23,35 +23,35 @@ const updateMainCategories = (state: ProductsStateType, category: string): Produ
 
 const searchMainCategory = (state: ProductsStateType, search: string): ProductsStateType => {
     state.categoryRecords = DummyData.ProductCategoryDetails
-    var searchedCat = state.categoryRecords.filter((category) => (category.CategoryName.toLowerCase().includes(search.toLowerCase())  ))
+    var searchedCat = state.categoryRecords.filter((category) => (category.CategoryName.toLowerCase().includes(search.toLowerCase())))
     return {
         ...state,
-         categoryRecords: searchedCat
+        categoryRecords: searchedCat
     }
 }
 
 const searchSubCategory = (state: ProductsStateType, search: string): ProductsStateType => {
     state.subCategoryRecords = DummyData.ProductSubCategories
-    var searchedCat = state.subCategoryRecords.filter((category) => (category.SubCategoryName.toLowerCase().includes(search.toLowerCase())  ))
+    var searchedCat = state.subCategoryRecords.filter((category) => (category.SubCategoryName.toLowerCase().includes(search.toLowerCase())))
     return {
         ...state,
-         subCategoryRecords: searchedCat
+        subCategoryRecords: searchedCat
     }
 }
 
 const updateSubCategory = (state: ProductsStateType, category: string, categoryId: number): ProductsStateType => {
     return {
         ...state,
-         subCategoryRecords: [...state.subCategoryRecords, { 
+        subCategoryRecords: [...state.subCategoryRecords, {
             "CategoryLevel": 2,
             "SubCategoryName": category,
             "CategoryId": categoryId,
             "SubCategoryId": Math.floor(1000 + Math.random() * 9000).toString()
-          }]
+        }]
     }
 }
 
-const setProductCategoryFilter = (state: ProductsStateType, category: string): ProductsStateType => {
+const setProductCategoryFilter = (state: ProductsStateType, category: number): ProductsStateType => {
     return {
         ...state,
         ProductsFilters: {
@@ -62,8 +62,8 @@ const setProductCategoryFilter = (state: ProductsStateType, category: string): P
 }
 
 const setFilters = (state: ProductsStateType, productsFilters: ProductsFilters): ProductsStateType => {
-    console.log(productsFilters.filterProductCategories +' products filter')
-    console.log(productsFilters.filterSKUNumber+ ' SKU Number filter')
+    // console.log(productsFilters.filterProductCategories +' products filter')
+    // console.log(productsFilters.filterSKUNumber+ ' SKU Number filter')
     return {
         ...state,
         ProductsFilters: productsFilters
@@ -71,7 +71,7 @@ const setFilters = (state: ProductsStateType, productsFilters: ProductsFilters):
 }
 
 const setSKUNumberFilter = (state: ProductsStateType, SKUNumber: number): ProductsStateType => {
-    console.log(SKUNumber +' selected SKU Number')
+    // console.log(SKUNumber +' selected SKU Number')
     return {
         ...state,
         ProductsFilters: {
@@ -90,13 +90,13 @@ export const ProductsReducer = (state = ProductsInitialState, action: ProductsAc
         case SEARCH_MAIN_CATEGORY:
             return searchMainCategory(state, action.search)
         case SEARCH_SUB_CATEGORY:
-            return searchSubCategory(state, action.search)    
+            return searchSubCategory(state, action.search)
         case ADD_SUB_CATEGORY:
             return updateSubCategory(state, action.category, action.categoryId)
         case SET_PRODUCT_CATEGORY_FILTER:
             return setProductCategoryFilter(state, action.category)
         case SET_FILTERS:
-            return setFilters(state, action.productsFilters)    
+            return setFilters(state, action.productsFilters)
         case SET_SKU_NUMBER_FILTERS:
             return setSKUNumberFilter(state, action.SKUNumber)
         default:

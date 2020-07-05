@@ -23,9 +23,9 @@ export type AuthStackNavigationParamsType = {
 
 export type ProductStackNavigationParamsType = {
     product: {
-        title: string,
-        mainCatId: number,
-        subCatId: string
+        title: string
+        // mainCatId: number,
+        // subCatId: string
     },
     filterProducts: {
         title: string

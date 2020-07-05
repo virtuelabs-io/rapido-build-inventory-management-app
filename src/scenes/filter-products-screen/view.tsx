@@ -1,5 +1,5 @@
 import React, { Dispatch } from 'react'
-import { ScrollView, Button, View } from 'react-native'
+import { ScrollView, Button, View, Text } from 'react-native'
 import { RText, RButton } from '@virtuelabs-io/rapido-modules/src/components/atoms'
 import Styles from './styles'
 import { FilterProductsScreenProps, FilterProductsScreenState, FilterProductsScreenDispatchProps } from './types'
@@ -9,16 +9,38 @@ import { connect } from 'react-redux';
 import { FilterHolder } from '@virtuelabs-io/rapido-modules/src/components/molecules/filter-holder/view'
 import { ProductsFilters } from '../../store/products/types'
 import { setFilter } from '../../store/products/actions'
+import { TouchableOpacity } from 'react-native-gesture-handler'
+import { colors } from 'react-native-elements'
+import Utils from '@virtuelabs-io/rapido-modules/src/commons/utils';
 
 class FilterProductsScreen extends React.Component<FilterProductsScreenProps, FilterProductsScreenState> {
     constructor(props: FilterProductsScreenProps) {
         super(props)
-        this.props.navigation.setOptions(getStackStyles(this.props.route.params.title))
+        var options = getStackStyles(this.props.route.params.title)
+
+        options = {
+            ...options,
+            headerRight: () => (
+                <TouchableOpacity onPress={this.handleResetFilter} style={{marginRight: 15}}>
+                    <Text style={{color: '#0000FF', fontFamily: Utils.getFontFamily()}}>Clear Filter</Text>
+                </TouchableOpacity>
+            )
+        }
+        this.props.navigation.setOptions(options)
     }
 
-    backNavigation = () => {
+    handleResetFilter = () => {
+        this.props.data.productsFilters.filterSKUNumber = 0
+        this.props.navigation.navigate('product', {
+            title: ''
+        })
+    }
+
+    applyFilters = () => {
         this.props.setFilters(this.props.data.productsFilters)
-        this.props.navigation.goBack()
+        this.props.navigation.navigate('product', {
+            title: ''
+        })
     }
 
     SKUNumberFilterScreenNavigationHandler = () => {
@@ -80,7 +102,7 @@ class FilterProductsScreen extends React.Component<FilterProductsScreenProps, Fi
                     navigationFunc={this.createdOnFilterScreenNavigationHandler}
                 />
                 <View style={Styles.buttonContianer}>
-                    <RButton name="Filter" onPress={this.backNavigation} />
+                    <RButton name="Apply Filter" onPress={this.applyFilters} />
                 </View>
             </ScrollView>
         )

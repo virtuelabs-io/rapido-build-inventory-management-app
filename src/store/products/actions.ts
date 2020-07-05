@@ -37,7 +37,7 @@ export interface addSubCategory {
 
 export interface SetProductCategoryFilter {
     type: typeof SET_PRODUCT_CATEGORY_FILTER
-    category: string
+    category: number
 }
 
 export interface SetFilter {
@@ -86,7 +86,7 @@ export const addSubCategory = (category: string, categoryId: number): ProductsAc
     }
 }
 
-export const setProductCategoryFilter = (category: string): ProductsActionTypes => {
+export const setProductCategoryFilter = (category: number): ProductsActionTypes => {
     return {
         type: SET_PRODUCT_CATEGORY_FILTER,
         category: category

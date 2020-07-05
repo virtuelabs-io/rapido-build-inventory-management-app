@@ -7,6 +7,7 @@ export const ProductsInitialState: ProductsStateType = {
     categoryRecords: DummyData.ProductCategoryDetails,
     subCategoryRecords: DummyData.ProductSubCategories,
     ProductsFilters: {
-        filterProductCategories: ''
+        filterProductCategories: 0,
+        filterSKUNumber: 0
     }
 }

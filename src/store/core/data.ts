@@ -19,9 +19,9 @@ export const CoreReduxInitialState: CoreReduxStateType = {
         },
         productStack: {
             product: {
-                title: "Products",
-                mainCatId: 0,
-                subCatId: ""
+                title: "Products"
+                // mainCatId: 0,
+                // subCatId: ""
             },
             filterProducts: {
                 title: 'Filters'

@@ -18,7 +18,13 @@ class FilterProductCategoriesScreen extends React.Component<FilterProductCategor
 
     selectOrderStatusAndNavigateBackHandler = (productCategory: string) => {
         console.log('product category '+ productCategory)
-        this.props.setProductCategoryFilter(productCategory)
+        var selCatId: number = 0
+        this.props.options.forEach((category) => {
+            if(category.CategoryName === productCategory) {
+                selCatId = category.CategoryId
+            }
+        })
+        this.props.setProductCategoryFilter(selCatId)
         this.props.navigation.goBack()
     }
 
@@ -28,7 +34,7 @@ class FilterProductCategoriesScreen extends React.Component<FilterProductCategor
                 {this.props.options.map((value, index) => {
                     return (
                         <SimpleListHolder
-                            key={value.CategoryName}
+                            key={value.CategoryId}
                             value={value.CategoryName}
                             onSelection={this.selectOrderStatusAndNavigateBackHandler}
                         />
@@ -48,7 +54,7 @@ const mapStatetoProps = (state: AppState, localProps: FilterProductCategoriesScr
 
 const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): FilterProductCategoriesScreenDispatchProps => {
     return {
-        setProductCategoryFilter: (category: string) => dispatch(setProductCategoryFilter(category))
+        setProductCategoryFilter: (category: number) => dispatch(setProductCategoryFilter(category))
     }
 }
 
