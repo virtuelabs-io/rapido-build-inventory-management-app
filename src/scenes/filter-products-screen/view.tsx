@@ -7,17 +7,17 @@ import { getStackStyles } from '../../commons/styles';
 import { AppState, AppActionTypes } from '../../store';
 import { connect } from 'react-redux';
 import { FilterHolder } from '@virtuelabs-io/rapido-modules/src/components/molecules/filter-holder/view'
+import { ProductsFilters } from '../../store/products/types'
+import { setFilter } from '../../store/products/actions'
 
 class FilterProductsScreen extends React.Component<FilterProductsScreenProps, FilterProductsScreenState> {
-
-    
-
     constructor(props: FilterProductsScreenProps) {
         super(props)
         this.props.navigation.setOptions(getStackStyles(this.props.route.params.title))
     }
 
     backNavigation = () => {
+        this.props.setFilters(this.props.data.productsFilters)
         this.props.navigation.goBack()
     }
 
@@ -81,13 +81,16 @@ class FilterProductsScreen extends React.Component<FilterProductsScreenProps, Fi
 
 const mapStatetoProps = (state: AppState, localProps: FilterProductsScreenProps): FilterProductsScreenProps => {
     return {
-        ...localProps
+        ...localProps,
+        data:{
+            productsFilters: state.products.ProductsFilters
+        }
     }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): FilterProductsScreenDispatchProps => {
     return {
-        
+        setFilters: (productsFilter: ProductsFilters) => dispatch(setFilter(productsFilter))
     }
 }
 

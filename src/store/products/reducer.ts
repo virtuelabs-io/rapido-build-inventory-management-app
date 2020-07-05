@@ -1,6 +1,6 @@
-import { ProductsActionTypes, SET_ALL_PRODUCT_HEADERS, ADD_MAIN_CATEGORY, SEARCH_MAIN_CATEGORY, SEARCH_SUB_CATEGORY, ADD_SUB_CATEGORY } from './actions';
+import { ProductsActionTypes, SET_ALL_PRODUCT_HEADERS, ADD_MAIN_CATEGORY, SEARCH_MAIN_CATEGORY, SEARCH_SUB_CATEGORY, ADD_SUB_CATEGORY, SET_PRODUCT_CATEGORY_FILTER, SET_FILTERS } from './actions';
 import { ProductsInitialState } from './data'
-import { ProductsStateType } from './types';
+import { ProductsStateType, ProductsFilters } from './types';
 import { DummyData } from '../../models';
 
 const updateAllProductHeaderDetails = (state: ProductsStateType, data: any): ProductsStateType => {
@@ -51,6 +51,24 @@ const updateSubCategory = (state: ProductsStateType, category: string, categoryI
     }
 }
 
+const setProductCategoryFilter = (state: ProductsStateType, category: string): ProductsStateType => {
+    return {
+        ...state,
+        ProductsFilters: {
+            ...state.ProductsFilters,
+            filterProductCategories: category
+        }
+    }
+}
+
+const setFilters = (state: ProductsStateType, productsFilters: ProductsFilters): ProductsStateType => {
+    console.log(productsFilters.filterProductCategories +' products filter')
+    return {
+        ...state,
+        ProductsFilters: productsFilters
+    }
+}
+
 export const ProductsReducer = (state = ProductsInitialState, action: ProductsActionTypes): ProductsStateType => {
     switch (action.type) {
         case SET_ALL_PRODUCT_HEADERS:
@@ -63,6 +81,10 @@ export const ProductsReducer = (state = ProductsInitialState, action: ProductsAc
             return searchSubCategory(state, action.search)    
         case ADD_SUB_CATEGORY:
             return updateSubCategory(state, action.category, action.categoryId)
+        case SET_PRODUCT_CATEGORY_FILTER:
+            return setProductCategoryFilter(state, action.category)
+        case SET_FILTERS:
+            return setFilters(state, action.productsFilters)    
         default:
             return state
     }

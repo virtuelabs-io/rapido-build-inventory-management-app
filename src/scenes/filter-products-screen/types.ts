@@ -1,6 +1,7 @@
 import { StackScreenProps } from '@react-navigation/stack';
 import { ProductScreenParamProps } from '../products-screen/types';
 import { ProductStackNavigationParamsType } from '../../store/core/types';
+import { ProductsFilters } from '../../store/products/types';
 
 
 
@@ -12,13 +13,14 @@ export type FilterProductsScreenState = {
 
 export type FilterProductsScreenDataProps = {
     data: {
-      //  ordersFilters: OrdersFilters
+      productsFilters: ProductsFilters
     }
 
 }
 
 export type FilterProductsScreenDispatchProps = {
- }
+  setFilters: (ProductsFilters: ProductsFilters) => void
+}
 
 export type FilterProductsScreenProps =
 FilterProductsScreenParamProps &

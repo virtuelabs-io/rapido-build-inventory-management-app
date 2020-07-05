@@ -11,7 +11,7 @@ export type FilterProductCategoriesScreenDataProps = {
 }
 
 export type FilterProductCategoriesScreenDispatchProps = {
-
+    setProductCategoryFilter: (category: string) => void
 }
 
 export type FilterProductCategoriesScreenProps =

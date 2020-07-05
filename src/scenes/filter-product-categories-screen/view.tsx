@@ -7,6 +7,7 @@ import { AppState, AppActionTypes } from '../../store';
 import { connect } from 'react-redux';
 import { SimpleListHolder } from '@virtuelabs-io/rapido-modules/src/components/atoms/simple-list-item/view';
 import { DummyData } from '../../models';
+import { setProductCategoryFilter } from '../../store/products/actions'
 
 class FilterProductCategoriesScreen extends React.Component<FilterProductCategoriesScreenProps, FilterProductCategoriesScreenState> {
 
@@ -15,8 +16,9 @@ class FilterProductCategoriesScreen extends React.Component<FilterProductCategor
         this.props.navigation.setOptions(getStackStyles(this.props.route.params.title))
     }
 
-    selectOrderStatusAndNavigateBackHandler = (orderStatus: string) => {
-        
+    selectOrderStatusAndNavigateBackHandler = (productCategory: string) => {
+        console.log('product category '+ productCategory)
+        this.props.setProductCategoryFilter(productCategory)
         this.props.navigation.goBack()
     }
 
@@ -46,7 +48,7 @@ const mapStatetoProps = (state: AppState, localProps: FilterProductCategoriesScr
 
 const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): FilterProductCategoriesScreenDispatchProps => {
     return {
-        
+        setProductCategoryFilter: (category: string) => dispatch(setProductCategoryFilter(category))
     }
 }
 
