@@ -35,6 +35,9 @@ export type ProductStackNavigationParamsType = {
     },
     filterSKUNumber: {
         title: string
+    },
+    productDetails: {
+        title: string
     }
 }
 

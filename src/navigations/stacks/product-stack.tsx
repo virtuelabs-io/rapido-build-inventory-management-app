@@ -5,7 +5,7 @@ import ProductScreen  from '../../scenes/products-screen/view'
 import FilterProductsScreen from '../../scenes/filter-products-screen/view'
 import FilterProductCategoriesScreen from '../../scenes/filter-product-categories-screen/view'
 import FilterSKUNumberScreen from '../../scenes/filter-sku-number-screen/view'
-
+import ProductDetailsScreen from '../../scenes/product-details-screen/view'
 
 
 const ProductStackNavigator = createStackNavigator<ProductStackNavigationParamsType>();
@@ -39,6 +39,11 @@ export class ProductStackNavigation extends React.Component<ProductStackScreenPr
                     name="filterSKUNumber"
                     component={FilterSKUNumberScreen}
                     initialParams={this.props.route.params.filterSKUNumber}
+                /> 
+                <ProductStackNavigator.Screen
+                    name="productDetails"
+                    component={ProductDetailsScreen}
+                    initialParams={this.props.route.params.productDetails}
                 /> 
 			</ProductStackNavigator.Navigator>
 		)

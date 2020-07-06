@@ -31,6 +31,9 @@ export const CoreReduxInitialState: CoreReduxStateType = {
             },
             filterSKUNumber: {
                 title: 'SKU Number'
+            },
+            productDetails: {
+                title: "Details"
             }
         },
 

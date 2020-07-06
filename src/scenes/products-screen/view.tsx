@@ -40,13 +40,19 @@ class ProductScreen extends React.Component<ProductScreenProps, ProductScreenSta
         this.props.navigation.setOptions(options)
     }
 
+    handleNavigateToDetail = (id: any) => {
+        this.props.navigation.navigate('productDetails', {
+            title: id
+        })
+    }
+
     render(): React.ReactNode {
         return (
             <SafeAreaView style={Styles.screen}>
                 <FlatList
                 style={Styles.screen}
                 data={this.props.data}
-                renderItem={(product) => <Product data={product.item} onPress={() => console.log("Hi")} />}
+                renderItem={(product) => <Product data={product.item} onPress={this.handleNavigateToDetail.bind(this, product.item.id)} />}
                 keyExtractor={(product) => product.id.toString()}
             />
             </SafeAreaView>
