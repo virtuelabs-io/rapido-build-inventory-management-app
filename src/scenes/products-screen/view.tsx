@@ -42,7 +42,8 @@ class ProductScreen extends React.Component<ProductScreenProps, ProductScreenSta
 
     handleNavigateToDetail = (id: any) => {
         this.props.navigation.navigate('productDetails', {
-            title: id
+            title: "Details",
+            id: id
         })
     }
 

@@ -5,17 +5,18 @@ import { ProductDetailsScreenProps, ProductDetailsScreenState, ProductDetailsScr
 import { getStackStyles } from '../../commons/styles';
 import { AppState, AppActionTypes } from '../../store';
 import { connect } from 'react-redux';
+import { RTitleText } from '@virtuelabs-io/rapido-modules/src/components/atoms/r-title-text/view';
 
 class ProductDetailsScreen extends React.Component<ProductDetailsScreenProps, ProductDetailsScreenState> {
     constructor(props: ProductDetailsScreenProps, state: ProductDetailsScreenState) {
         super(props)
         this.props.navigation.setOptions(getStackStyles(
-            this.props.route.params.title,
+            this.props.route.params.id.toString(),
             "edit-3",
             () => {
                 // @ts-ignore
                 // REASON: state picked up from redux
-                this.props.navigation.navigate("editOrder")
+                
              }
         ))
     }
@@ -27,15 +28,17 @@ class ProductDetailsScreen extends React.Component<ProductDetailsScreenProps, Pr
     render(): React.ReactNode {
         return (
             <ScrollView style={Styles.screen}>
-                
+                <RTitleText>{this.props.data.name}</RTitleText>
             </ScrollView>
         )
     }
 }
 
 const mapStatetoProps = (state: AppState, localProps: ProductDetailsScreenProps): ProductDetailsScreenProps => {
+    var selProduct = state.products.headerRecords.filter((product) => product.id == localProps.route.params.id)
     return {
-        ...localProps
+        ...localProps,
+        data: selProduct[0].fields
     }
 }
 

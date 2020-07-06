@@ -37,7 +37,8 @@ export type ProductStackNavigationParamsType = {
         title: string
     },
     productDetails: {
-        title: string
+        title: string,
+        id: number
     }
 }
 
