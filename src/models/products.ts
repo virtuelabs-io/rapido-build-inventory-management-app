@@ -1,11 +1,26 @@
 export type ProductHeader = 
-    {
-        "CategoryId": number,
-        "SKUNumber": number,
-        "ProductTitle": string,
+{
+    "id": number,
+    "fields": {
+        "name": string,
         "InStockQty": number,
-        "SubCategoryId": string
+        "points": string[],
+        "description": string,
+        "price": number,
+        "notes": string,
+        "currency": string,
+        "images": string[],
+        "rating": number,
+        "offer": number,
+        "details": [
+            "key:value",
+            "key:value"
+        ],
+        "tags": string[],
+        "category": number,
+        "subcategory": string
     }
+}
 
 
 export type ProductCategories = {

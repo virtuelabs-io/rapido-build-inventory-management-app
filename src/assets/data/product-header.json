@@ -1,75 +1,465 @@
 [
     {
-        "CategoryId": 1001,
-        "SubCategoryId": "1001a",
-        "SKUNumber": 100001,
-        "ProductTitle": "Diesel Mens Smartwatch with Leather Strap DZT2009",
-        "InStockQty": 20
-    },{
-        "CategoryId": 1001,
-        "SubCategoryId": "1001a",
-        "SKUNumber": 100002,
-        "ProductTitle": "Fossil Mens Smartwatch",
-        "InStockQty": 20
-    },{
-        "CategoryId": 1001,
-        "SubCategoryId": "1001b",
-        "SKUNumber": 100003,
-        "ProductTitle": "Diesel Women's Smartwatch with Leather Strap DZT2009",
-        "InStockQty": 20
-    },{
-        "CategoryId": 1001,
-        "SubCategoryId": "1001b",
-        "SKUNumber": 100004,
-        "ProductTitle": "Fossil Women's Smartwatch",
-        "InStockQty": 20
-    },{
-        "CategoryId": 1002,
-        "SubCategoryId": "1002a",
-        "SKUNumber": 100005,
-        "ProductTitle": "Samsung Galaxy S1",
-        "InStockQty": 20
-    },{
-        "CategoryId": 1002,
-        "SubCategoryId": "1002a",
-        "SKUNumber": 100006,
-        "ProductTitle": "Samsung Galaxy S2",
-        "InStockQty": 20
-    },{
-        "CategoryId": 1002,
-        "SubCategoryId": "1002b",
-        "SKUNumber": 100007,
-        "ProductTitle": "iPhone XS",
-        "InStockQty": 20
-    },{
-        "CategoryId": 1002,
-        "SubCategoryId": "1002b",
-        "SKUNumber": 100008,
-        "ProductTitle": "iPhone XR",
-        "InStockQty": 20
-    },{
-        "CategoryId": 1003,
-        "SubCategoryId": "1003a",
-        "SKUNumber": 100009,
-        "ProductTitle": "King Size Cot",
-        "InStockQty": 20
-    },{
-        "CategoryId": 1003,
-        "SubCategoryId": "1003a",
-        "SKUNumber": 100010,
-        "ProductTitle": "Queen Size Cot",
-        "InStockQty": 20
-    },{
-        "CategoryId": 1003,
-        "SubCategoryId": "1003b",
-        "SKUNumber": 100011,
-        "ProductTitle": "Two Seater Sofa",
-        "InStockQty": 20
-    },{
-        "CategoryId": 1003,
-        "SubCategoryId": "1003b",
-        "SKUNumber": 100012,
-        "ProductTitle": "Three Seater Sofa",
-        "InStockQty": 20
+        "id": 100001,
+        "fields": {
+            "name": "Diesel Mens Smartwatch with Leather Strap DZT2009",
+            "InStockQty": 20,
+            "points": [
+                "Point 1",
+                "Point 2",
+                "Point 3",
+                "Point 4"
+            ],
+            "description": "Product description",
+            "price": 57.90,
+            "notes": "some notes",
+            "currency": "£",
+            "images": [
+                "link to image 1",
+                "link to image 2"
+            ],
+            "rating": 3.5,
+            "offer": 0.1,
+            "details": [
+                "key:value",
+                "key:value"
+            ],
+            "tags": [
+                "tag 1",
+                "tag 2",
+                "tag 3",
+                "tag 4",
+                "tag 5"
+            ],
+            "category": 1001,
+            "subcategory": "1001a"
+        }
+    },
+    {
+        "id": 100002,
+        "fields": {
+            "name": "Fossil Mens Smartwatch",
+            "InStockQty": 20,
+            "points": [
+                "Point 1",
+                "Point 2",
+                "Point 3",
+                "Point 4"
+            ],
+            "description": "Product description",
+            "price": 57.90,
+            "notes": "some notes",
+            "currency": "£",
+            "images": [
+                "link to image 1",
+                "link to image 2"
+            ],
+            "rating": 3.5,
+            "offer": 0.1,
+            "details": [
+                "key:value",
+                "key:value"
+            ],
+            "tags": [
+                "tag 1",
+                "tag 2",
+                "tag 3",
+                "tag 4",
+                "tag 5"
+            ],
+            "category": 1001,
+            "subcategory": "1001a"
+        }
+    },
+    {
+        "id": 100003,
+        "fields": {
+            "name": "Diesel Women's Smartwatch with Leather Strap DZT2009",
+            "InStockQty": 20,
+            "points": [
+                "Point 1",
+                "Point 2",
+                "Point 3",
+                "Point 4"
+            ],
+            "description": "Product description",
+            "price": 57.90,
+            "notes": "some notes",
+            "currency": "£",
+            "images": [
+                "link to image 1",
+                "link to image 2"
+            ],
+            "rating": 3.5,
+            "offer": 0.1,
+            "details": [
+                "key:value",
+                "key:value"
+            ],
+            "tags": [
+                "tag 1",
+                "tag 2",
+                "tag 3",
+                "tag 4",
+                "tag 5"
+            ],
+            "category": 1001,
+            "subcategory": "1001b"
+        }
+    },
+    {
+        "id": 100004,
+        "fields": {
+            "name": "Fossil Women's Smartwatch",
+            "InStockQty": 20,
+            "points": [
+                "Point 1",
+                "Point 2",
+                "Point 3",
+                "Point 4"
+            ],
+            "description": "Product description",
+            "price": 57.90,
+            "notes": "some notes",
+            "currency": "£",
+            "images": [
+                "link to image 1",
+                "link to image 2"
+            ],
+            "rating": 3.5,
+            "offer": 0.1,
+            "details": [
+                "key:value",
+                "key:value"
+            ],
+            "tags": [
+                "tag 1",
+                "tag 2",
+                "tag 3",
+                "tag 4",
+                "tag 5"
+            ],
+            "category": 1001,
+            "subcategory": "1001b"
+        }
+    },
+    {
+        "id": 100005,
+        "fields": {
+            "name": "Samsung Galaxy S1",
+            "InStockQty": 20,
+            "points": [
+                "Point 1",
+                "Point 2",
+                "Point 3",
+                "Point 4"
+            ],
+            "description": "Product description",
+            "price": 57.90,
+            "notes": "some notes",
+            "currency": "£",
+            "images": [
+                "link to image 1",
+                "link to image 2"
+            ],
+            "rating": 3.5,
+            "offer": 0.1,
+            "details": [
+                "key:value",
+                "key:value"
+            ],
+            "tags": [
+                "tag 1",
+                "tag 2",
+                "tag 3",
+                "tag 4",
+                "tag 5"
+            ],
+            "category": 1002,
+            "subcategory": "1002a"
+        }
+    },
+    {
+        "id": 100006,
+        "fields": {
+            "name": "Samsung Galaxy S2",
+            "InStockQty": 20,
+            "points": [
+                "Point 1",
+                "Point 2",
+                "Point 3",
+                "Point 4"
+            ],
+            "description": "Product description",
+            "price": 57.90,
+            "notes": "some notes",
+            "currency": "£",
+            "images": [
+                "link to image 1",
+                "link to image 2"
+            ],
+            "rating": 3.5,
+            "offer": 0.1,
+            "details": [
+                "key:value",
+                "key:value"
+            ],
+            "tags": [
+                "tag 1",
+                "tag 2",
+                "tag 3",
+                "tag 4",
+                "tag 5"
+            ],
+            "category": 1002,
+            "subcategory": "1002a"
+        }
+    },
+    {
+        "id": 100007,
+        "fields": {
+            "name": "Samsung Galaxy S1",
+            "InStockQty": 20,
+            "points": [
+                "Point 1",
+                "Point 2",
+                "Point 3",
+                "Point 4"
+            ],
+            "description": "Product description",
+            "price": 57.90,
+            "notes": "some notes",
+            "currency": "£",
+            "images": [
+                "link to image 1",
+                "link to image 2"
+            ],
+            "rating": 3.5,
+            "offer": 0.1,
+            "details": [
+                "key:value",
+                "key:value"
+            ],
+            "tags": [
+                "tag 1",
+                "tag 2",
+                "tag 3",
+                "tag 4",
+                "tag 5"
+            ],
+            "category": 1002,
+            "subcategory": "1002b"
+        }
+    },
+    {
+        "id": 100008,
+        "fields": {
+            "name": "iPhone XR",
+            "InStockQty": 20,
+            "points": [
+                "Point 1",
+                "Point 2",
+                "Point 3",
+                "Point 4"
+            ],
+            "description": "Product description",
+            "price": 57.90,
+            "notes": "some notes",
+            "currency": "£",
+            "images": [
+                "link to image 1",
+                "link to image 2"
+            ],
+            "rating": 3.5,
+            "offer": 0.1,
+            "details": [
+                "key:value",
+                "key:value"
+            ],
+            "tags": [
+                "tag 1",
+                "tag 2",
+                "tag 3",
+                "tag 4",
+                "tag 5"
+            ],
+            "category": 1002,
+            "subcategory": "1002b"
+        }
+    },
+    {
+        "id": 100009,
+        "fields": {
+            "name": "King Size Cot",
+            "InStockQty": 20,
+            "points": [
+                "Point 1",
+                "Point 2",
+                "Point 3",
+                "Point 4"
+            ],
+            "description": "Product description",
+            "price": 57.90,
+            "notes": "some notes",
+            "currency": "£",
+            "images": [
+                "link to image 1",
+                "link to image 2"
+            ],
+            "rating": 3.5,
+            "offer": 0.1,
+            "details": [
+                "key:value",
+                "key:value"
+            ],
+            "tags": [
+                "tag 1",
+                "tag 2",
+                "tag 3",
+                "tag 4",
+                "tag 5"
+            ],
+            "category": 1003,
+            "subcategory": "1003a"
+        }
+    },
+    {
+        "id": 100010,
+        "fields": {
+            "name": "Queen Size Cot",
+            "InStockQty": 20,
+            "points": [
+                "Point 1",
+                "Point 2",
+                "Point 3",
+                "Point 4"
+            ],
+            "description": "Product description",
+            "price": 57.90,
+            "notes": "some notes",
+            "currency": "£",
+            "images": [
+                "link to image 1",
+                "link to image 2"
+            ],
+            "rating": 3.5,
+            "offer": 0.1,
+            "details": [
+                "key:value",
+                "key:value"
+            ],
+            "tags": [
+                "tag 1",
+                "tag 2",
+                "tag 3",
+                "tag 4",
+                "tag 5"
+            ],
+            "category": 1003,
+            "subcategory": "1003a"
+        }
+    },
+    {
+        "id": 100011,
+        "fields": {
+            "name": "Two Seater Sofa",
+            "InStockQty": 20,
+            "points": [
+                "Point 1",
+                "Point 2",
+                "Point 3",
+                "Point 4"
+            ],
+            "description": "Product description",
+            "price": 57.90,
+            "notes": "some notes",
+            "currency": "£",
+            "images": [
+                "link to image 1",
+                "link to image 2"
+            ],
+            "rating": 3.5,
+            "offer": 0.1,
+            "details": [
+                "key:value",
+                "key:value"
+            ],
+            "tags": [
+                "tag 1",
+                "tag 2",
+                "tag 3",
+                "tag 4",
+                "tag 5"
+            ],
+            "category": 1003,
+            "subcategory": "1003b"
+        }
+    },
+    {
+        "id": 100012,
+        "fields": {
+            "name": "Three Seater Sofa",
+            "InStockQty": 20,
+            "points": [
+                "Point 1",
+                "Point 2",
+                "Point 3",
+                "Point 4"
+            ],
+            "description": "Product description",
+            "price": 57.90,
+            "notes": "some notes",
+            "currency": "£",
+            "images": [
+                "link to image 1",
+                "link to image 2"
+            ],
+            "rating": 3.5,
+            "offer": 0.1,
+            "details": [
+                "key:value",
+                "key:value"
+            ],
+            "tags": [
+                "tag 1",
+                "tag 2",
+                "tag 3",
+                "tag 4",
+                "tag 5"
+            ],
+            "category": 1003,
+            "subcategory": "1003b"
+        }
     }
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 ]

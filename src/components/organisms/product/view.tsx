@@ -23,10 +23,10 @@ export class Product extends React.Component<ProductProps, ProductState> {
                 <View style={Styles.leftContainer}>
                     <View style={Styles.orderNumberContainer}>
                         <Feather name="box" size={20} color={Colors.primary} />
-                        <RTitleText> {this.props.data.SKUNumber}</RTitleText>
+                        <RTitleText> {this.props.data.id}</RTitleText>
                     </View>
-                    <RText>{this.props.data.ProductTitle}</RText>
-                    <RText>Quantity: {this.props.data.InStockQty}</RText>
+                    <RText>{this.props.data.fields.name}</RText>
+                    <RText>Quantity: {this.props.data.fields.InStockQty}</RText>
                 </View>
                 {/* <View style={Styles.rightContainer}>
                     <OrderStatus>{this.props.data.orderStatus.toLocaleUpperCase()}</OrderStatus>

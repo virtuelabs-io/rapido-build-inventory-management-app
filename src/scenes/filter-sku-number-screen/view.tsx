@@ -28,7 +28,6 @@ class FilterSKUNumberScreen extends React.Component<FilterSKUNumberScreenProps, 
 
     searchSKUNumber = (partialOrderNumber: string) => {
         this.setState({ searchInput: partialOrderNumber })
-        console.log(`Searched partial order number is ${partialOrderNumber}`)
     }
 
     selectOrderNumberAndNavigateBackHandler = (selectedSKUNumber: string) => {
@@ -60,7 +59,7 @@ class FilterSKUNumberScreen extends React.Component<FilterSKUNumberScreenProps, 
 
 const mapStatetoProps = (state: AppState, localProps: FilterSKUNumberScreenProps): FilterSKUNumberScreenProps => {
     var SKUNumbers: number[] = []
-    state.products.headerRecords.forEach(category => SKUNumbers.push(category.SKUNumber))
+    state.products.headerRecords.forEach(category => SKUNumbers.push(category.id))
     return {
         ...localProps,
         options: SKUNumbers

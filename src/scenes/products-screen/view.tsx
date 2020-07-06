@@ -47,7 +47,7 @@ class ProductScreen extends React.Component<ProductScreenProps, ProductScreenSta
                 style={Styles.screen}
                 data={this.props.data}
                 renderItem={(product) => <Product data={product.item} onPress={() => console.log("Hi")} />}
-                keyExtractor={(product) => product.SKUNumber.toString()}
+                keyExtractor={(product) => product.id.toString()}
             />
             </SafeAreaView>
         )
@@ -55,11 +55,11 @@ class ProductScreen extends React.Component<ProductScreenProps, ProductScreenSta
 }
 
 const mapStatetoProps = (state: AppState, localProps: ProductScreenProps): ProductScreenProps => {
-    if(state.products.ProductsFilters.filterSKUNumber) {
+    if(state.products.ProductsFilters.filterSKUNumber || state.products.ProductsFilters.filterProductCategories) {
         return {
             ...localProps,
-            data: state.products.headerRecords.filter((product) => (product.SKUNumber === state.products.ProductsFilters.filterSKUNumber)
-            || (product.CategoryId === state.products.ProductsFilters.filterProductCategories)
+            data: state.products.headerRecords.filter((product) => (product.id === state.products.ProductsFilters.filterSKUNumber)
+            || (product.fields.category === state.products.ProductsFilters.filterProductCategories)
             ),
             title: localProps.route.params.title
         }

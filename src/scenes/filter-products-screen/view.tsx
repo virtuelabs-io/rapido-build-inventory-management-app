@@ -31,6 +31,7 @@ class FilterProductsScreen extends React.Component<FilterProductsScreenProps, Fi
 
     handleResetFilter = () => {
         this.props.data.productsFilters.filterSKUNumber = 0
+        this.props.data.productsFilters.filterProductCategories = 0
         this.props.navigation.navigate('product', {
             title: ''
         })

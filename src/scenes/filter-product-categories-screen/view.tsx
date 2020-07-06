@@ -17,7 +17,6 @@ class FilterProductCategoriesScreen extends React.Component<FilterProductCategor
     }
 
     selectOrderStatusAndNavigateBackHandler = (productCategory: string) => {
-        console.log('product category '+ productCategory)
         var selCatId: number = 0
         this.props.options.forEach((category) => {
             if(category.CategoryName === productCategory) {
