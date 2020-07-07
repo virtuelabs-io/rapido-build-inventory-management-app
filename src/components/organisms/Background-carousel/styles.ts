@@ -2,7 +2,7 @@ import { StyleSheet, Dimensions } from 'react-native';
 import { Colors } from '@virtuelabs-io/rapido-modules/src/commons/styles/colors';
 import Utils from '@virtuelabs-io/rapido-modules/src/commons/utils';
 
-const DEVICE_WIDTH = Dimensions.get("window").width-((10*Dimensions.get("window").width)/100);
+const DEVICE_WIDTH = Math.round(Dimensions.get("window").width-((19*Dimensions.get("window").width)/100));
 
 const Styles = StyleSheet.create({
     container: {

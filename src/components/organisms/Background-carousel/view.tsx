@@ -5,8 +5,6 @@ import Styles from './styles';
 import styles from '../Carousel/Stat/styles';
 import { setFilter } from '../../../store/products/actions';
 
-const DEVICE_WIDTH = Dimensions.get("window").width-(10*Dimensions.get("window").width/100);
-
 class BackgroundCarousel extends React.Component<BackgroundCarouselProps, BackgroundCarouselState> {
     scrollRef = React.createRef();
     constructor(props: BackgroundCarouselProps) {

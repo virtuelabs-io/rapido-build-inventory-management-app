@@ -67,10 +67,10 @@ class ProductDetailsScreen extends React.Component<ProductDetailsScreenProps, Pr
                     }
                 </Card>
 
-                <View style={{ width: "100%", alignContent: "center", paddingVertical: 50 }}>
+                <Card>
                 <Text style={Styles.pointsTitle}>Images</Text>
                     <BackgroundCarousel images={images} />
-                </View>
+                </Card>
 
                 {/* <Carousel
                     style='stats'
