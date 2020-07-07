@@ -2,7 +2,7 @@ import { StyleSheet, Dimensions } from 'react-native';
 import { Colors } from '@virtuelabs-io/rapido-modules/src/commons/styles/colors';
 import Utils from '@virtuelabs-io/rapido-modules/src/commons/utils';
 
-const DEVICE_WIDTH = Math.round(Dimensions.get("window").width-((19*Dimensions.get("window").width)/100));
+const DEVICE_WIDTH = Math.round(Dimensions.get("window").width-((19.3*Dimensions.get("window").width)/100));
 
 const Styles = StyleSheet.create({
     container: {
@@ -11,7 +11,7 @@ const Styles = StyleSheet.create({
     backgroundImage: {
         height: 300,
         width: DEVICE_WIDTH,
-        borderRadius: 10
+        marginBottom: 15
     },
     circleDiv: {
         position: "absolute",
@@ -24,7 +24,7 @@ const Styles = StyleSheet.create({
         alignContent: "center",
         padding: 20,
     },
-    whiteCircle: {
+    BlackCircle: {
         width: 6,
         height: 6,
         borderRadius: 3,

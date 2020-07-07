@@ -40,7 +40,8 @@ class BackgroundCarousel extends React.Component<BackgroundCarouselProps, Backgr
                     {images.map((image) => (
                         <Image 
                             key={image}
-                            source={require("../../../../assets/65-Rajgarhwala-Furnitures-Sofa-full.jpg")}
+                            source={{uri: image}}
+                            // {require("../../../../assets/65-Rajgarhwala-Furnitures-Sofa-full.jpg")}
                             // source={{uri: image}}
                             style={Styles.backgroundImage}
                         />
@@ -50,7 +51,7 @@ class BackgroundCarousel extends React.Component<BackgroundCarouselProps, Backgr
                     {images.map((image, i) => (
                         <View 
                             key={i}
-                            style={[Styles.whiteCircle, {opacity: i === selectedIndex ? 0.5 : 1}]} />
+                            style={[Styles.BlackCircle, {opacity: i === selectedIndex ? 0.5 : 1}]} />
                     ))}
                 </View>
             </View>
