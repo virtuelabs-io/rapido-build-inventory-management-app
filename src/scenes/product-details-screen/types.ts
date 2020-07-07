@@ -4,7 +4,9 @@ import { ProductHeader } from '../../models/products';
 
 export type ProductDetailsScreenParamProps = StackScreenProps<ProductStackNavigationParamsType, 'productDetails'>
 
-export type ProductDetailsScreenState = {}
+export type ProductDetailsScreenState = {
+    screenHeight: "100%"
+}
 
 export type ProductDetailsScreenDataProps = {
     data: ProductHeader["fields"]
