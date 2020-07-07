@@ -64,9 +64,9 @@ class ProductDetailsScreen extends React.Component<ProductDetailsScreenProps, Pr
                 <RTitleText>{this.props.data.name}</RTitleText>
                 <Card>
                     <Text style={Styles.pointsTitle}>Product Details</Text>
-                    {this.props.data.points.map((point) => {
+                    {this.props.data.points.map((point, i) => {
                         return (
-                            <View style={Styles.pointsCard}>
+                            <View key={i} style={Styles.pointsCard}>
                                 <Entypo name="dot-single" size={24} color="black" />
                                 <Text style={Styles.points}>{point}</Text>
                             </View>
