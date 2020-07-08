@@ -7,7 +7,7 @@ import { setFilter } from '../../../store/products/actions';
 
 const DEVICE_WIDTH = Math.round(Dimensions.get("window").width-((19.3*Dimensions.get("window").width)/100));
 class BackgroundCarousel extends React.Component<BackgroundCarouselProps, BackgroundCarouselState> {
-
+    _isMounted = false;
     // private scrollRef: React.RefObject<React.Component<BackgroundCarouselProps>>;
     constructor(props: BackgroundCarouselProps) {
         super(props);
@@ -32,19 +32,28 @@ class BackgroundCarousel extends React.Component<BackgroundCarouselProps, Backgr
     }
 
     componentDidMount = () => {
-        setInterval(() => {
+        this._isMounted = true;
+
+        if(this._isMounted) {
+            setInterval(() => {
             
-            this.setState(prev => ({selectedIndex: prev.selectedIndex === this.props.images.length - 1 ? 0 : prev.selectedIndex + 1 }),
-            () => {
-                this.state.scrollRef.current.scrollTo({
-                    animated: true,
-                    y: 0,
-                    x: DEVICE_WIDTH * this.state.selectedIndex
+                this.setState(prev => ({selectedIndex: prev.selectedIndex === this.props.images.length - 1 ? 0 : prev.selectedIndex + 1 }),
+                () => {
+                    this.state.scrollRef.current.scrollTo({
+                        animated: true,
+                        y: 0,
+                        x: DEVICE_WIDTH * this.state.selectedIndex
+                    })
                 })
-            })
-            
-        }, 2000)
+                
+            }, 2000)
+        }
+        
     }
+
+    componentWillUnmount() {
+        this._isMounted = false;
+      }
 
     focus() {
         this.state.scrollRef.current.focus()
