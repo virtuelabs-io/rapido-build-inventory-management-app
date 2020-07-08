@@ -5,16 +5,21 @@ import Styles from './styles';
 import styles from '../Carousel/Stat/styles';
 import { setFilter } from '../../../store/products/actions';
 
+const DEVICE_WIDTH = Math.round(Dimensions.get("window").width-((19.3*Dimensions.get("window").width)/100));
 class BackgroundCarousel extends React.Component<BackgroundCarouselProps, BackgroundCarouselState> {
-    scrollRef = React.createRef();
+
+    // private scrollRef: React.RefObject<React.Component<BackgroundCarouselProps>>;
     constructor(props: BackgroundCarouselProps) {
         super(props);
 
         this.state = {
-            selectedIndex: 0
+            selectedIndex: 0,
+            scrollRef: React.createRef()
         }
         
     }
+
+
 
     setSelectedIndex = (event: any) => {
         // width of the viewSize
@@ -26,6 +31,25 @@ class BackgroundCarousel extends React.Component<BackgroundCarouselProps, Backgr
         this.setState({ selectedIndex })
     }
 
+    componentDidMount = () => {
+        setInterval(() => {
+            
+            this.setState(prev => ({selectedIndex: prev.selectedIndex === this.props.images.length - 1 ? 0 : prev.selectedIndex + 1 }),
+            () => {
+                this.state.scrollRef.current.scrollTo({
+                    animated: true,
+                    y: 0,
+                    x: DEVICE_WIDTH * this.state.selectedIndex
+                })
+            })
+            
+        }, 2000)
+    }
+
+    focus() {
+        this.state.scrollRef.current.focus()
+    }
+
     render(): React.ReactNode {
         const { images } = this.props
         const { selectedIndex } = this.state
@@ -35,8 +59,9 @@ class BackgroundCarousel extends React.Component<BackgroundCarouselProps, Backgr
                 <ScrollView 
                     showsHorizontalScrollIndicator={false}
                     horizontal 
-                    pagingEnabled 
-                    onMomentumScrollEnd={this.setSelectedIndex}>
+                    pagingEnabled
+                    onMomentumScrollEnd={this.setSelectedIndex}
+                    ref={this.state.scrollRef}>
                     {images.map((image) => (
                         <Image 
                             key={image}

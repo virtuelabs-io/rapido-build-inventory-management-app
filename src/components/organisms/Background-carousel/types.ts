@@ -4,5 +4,6 @@ export type BackgroundCarouselProps = {
 }
 
 export type BackgroundCarouselState = {
-    selectedIndex: number
+    selectedIndex: number,
+    scrollRef: any
  }
