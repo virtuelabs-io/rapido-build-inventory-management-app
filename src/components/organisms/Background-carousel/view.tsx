@@ -5,21 +5,17 @@ import Styles from './styles';
 import styles from '../Carousel/Stat/styles';
 import { setFilter } from '../../../store/products/actions';
 
-const DEVICE_WIDTH = Math.round(Dimensions.get("window").width-((19.3*Dimensions.get("window").width)/100));
+const DEVICE_WIDTH = Math.round(Dimensions.get("window").width - ((19.3 * Dimensions.get("window").width) / 100));
 class BackgroundCarousel extends React.Component<BackgroundCarouselProps, BackgroundCarouselState> {
     _isMounted = false;
     // private scrollRef: React.RefObject<React.Component<BackgroundCarouselProps>>;
     constructor(props: BackgroundCarouselProps) {
         super(props);
-
         this.state = {
             selectedIndex: 0,
             scrollRef: React.createRef()
         }
-        
     }
-
-
 
     setSelectedIndex = (event: any) => {
         // width of the viewSize
@@ -28,32 +24,30 @@ class BackgroundCarousel extends React.Component<BackgroundCarouselProps, Backgr
         const contentOffset = event.nativeEvent.contentOffset.x;
 
         const selectedIndex = Math.floor(contentOffset / viewSize)
-        this.setState({ selectedIndex })
+        if (this._isMounted) {
+            this.setState({ selectedIndex })
+        }
     }
 
     componentDidMount = () => {
         this._isMounted = true;
-
-        if(this._isMounted) {
-            setInterval(() => {
-            
-                this.setState(prev => ({selectedIndex: prev.selectedIndex === this.props.images.length - 1 ? 0 : prev.selectedIndex + 1 }),
-                () => {
-                    this.state.scrollRef.current.scrollTo({
-                        animated: true,
-                        y: 0,
-                        x: DEVICE_WIDTH * this.state.selectedIndex
+        setInterval(() => {
+            if (this._isMounted) {
+                this.setState(prev => ({ selectedIndex: prev.selectedIndex === this.props.images.length - 1 ? 0 : prev.selectedIndex + 1 }),
+                    () => {
+                        this.state.scrollRef.current.scrollTo({
+                            animated: true,
+                            y: 0,
+                            x: DEVICE_WIDTH * this.state.selectedIndex
+                        })
                     })
-                })
-                
-            }, 2000)
-        }
-        
+            }
+        }, 2000)
     }
 
     componentWillUnmount() {
         this._isMounted = false;
-      }
+    }
 
     focus() {
         this.state.scrollRef.current.focus()
@@ -64,17 +58,17 @@ class BackgroundCarousel extends React.Component<BackgroundCarouselProps, Backgr
         const { selectedIndex } = this.state
 
         return (
-                <View style={{ width: "100%"}} >
-                <ScrollView 
+            <View style={{ width: "100%" }} >
+                <ScrollView
                     showsHorizontalScrollIndicator={false}
-                    horizontal 
+                    horizontal
                     pagingEnabled
                     onMomentumScrollEnd={this.setSelectedIndex}
                     ref={this.state.scrollRef}>
                     {images.map((image) => (
-                        <Image 
+                        <Image
                             key={image}
-                            source={{uri: image}}
+                            source={{ uri: image }}
                             // {require("../../../../assets/65-Rajgarhwala-Furnitures-Sofa-full.jpg")}
                             // source={{uri: image}}
                             style={Styles.backgroundImage}
@@ -83,9 +77,9 @@ class BackgroundCarousel extends React.Component<BackgroundCarouselProps, Backgr
                 </ScrollView>
                 <View style={Styles.circleDiv}>
                     {images.map((image, i) => (
-                        <View 
+                        <View
                             key={i}
-                            style={[Styles.BlackCircle, {opacity: i === selectedIndex ? 0.5 : 1}]} />
+                            style={[Styles.BlackCircle, { opacity: i === selectedIndex ? 0.5 : 1 }]} />
                     ))}
                 </View>
             </View>

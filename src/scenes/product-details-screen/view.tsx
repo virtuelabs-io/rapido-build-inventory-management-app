@@ -17,21 +17,14 @@ import BackgroundCarousel from '../../components/organisms/Background-carousel/v
 const { height } = Dimensions.get("window");
 
 const images = [
-    // "1",
-    // "2",
-    // "3",
-    // "4",
-    // '../../../assets/65-Rajgarhwala-Furnitures-Sofa-full.jpg',
-
-
-
     "https://images.unsplash.com/photo-1508138221679-760a23a2285b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-  "https://images.unsplash.com/photo-1485550409059-9afb054cada4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=701&q=80",
-  "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
-  "https://images.unsplash.com/photo-1429087969512-1e85aab2683d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
-  "https://images.unsplash.com/photo-1505678261036-a3fcc5e884ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+    "https://images.unsplash.com/photo-1485550409059-9afb054cada4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=701&q=80",
+    "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+    "https://images.unsplash.com/photo-1429087969512-1e85aab2683d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+    "https://images.unsplash.com/photo-1505678261036-a3fcc5e884ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
 ];
 class ProductDetailsScreen extends React.Component<ProductDetailsScreenProps, ProductDetailsScreenState> {
+    _isMounted = false;
     constructor(props: ProductDetailsScreenProps, state: ProductDetailsScreenState) {
         super(props)
         this.props.navigation.setOptions(getStackStyles(
@@ -45,9 +38,20 @@ class ProductDetailsScreen extends React.Component<ProductDetailsScreenProps, Pr
         ))
     }
 
-    onContentSizeChange = (contentWidth: any, contentHeight: any) => {
-        this.setState({ screenHeight: contentHeight })
-    }
+    // componentDidMount() {
+    //     this._isMounted = true
+    // }
+
+    // componentWillUnmount() {
+    //     this._isMounted = false;
+    // }
+
+    // onContentSizeChange = (contentWidth: any, contentHeight: any) => {
+    //     this._isMounted = true
+    //     if(this._isMounted) {
+    //         this.setState({ screenHeight: contentHeight })
+    //     }
+    // }
 
 
 
@@ -59,9 +63,46 @@ class ProductDetailsScreen extends React.Component<ProductDetailsScreenProps, Pr
         const enableScroll = true //Number(this.state.screenHeight) > height
         return (
             <ScrollView style={Styles.screen}
-                scrollEnabled={enableScroll}
-                onContentSizeChange={this.onContentSizeChange}>
+            // scrollEnabled={enableScroll}
+            // onContentSizeChange={this.onContentSizeChange}
+            >
                 <RTitleText>{this.props.data.name}</RTitleText>
+
+                <Carousel
+                    style='stats'
+                    itemsPerInterval={3}
+                    items={[{
+                        label: 'Price',
+                        value: this.props.data.price.toFixed(2) + " " + this.props.data.currency
+                    }, {
+                        label: 'MRP',
+                        value: (this.props.data.price * ((100 + (this.props.data.offer * 100)) / 100)).toFixed(2) + " " + this.props.data.currency
+                    }, {
+                        label: 'You Save',
+                        value: (this.props.data.offer * 100) + "%"
+                    }]}
+                />
+
+
+                <Carousel
+                    style='stats'
+                    itemsPerInterval={3}
+                    items={[
+                        {
+                            label: 'Qty',
+                            value: this.props.data.InStockQty
+                        }, {
+                            label: 'Blocked Qty',
+                            value: this.props.data.BlockedQty
+                        }, {
+                            label: 'Available Qty',
+                            value: this.props.data.InStockQty - this.props.data.BlockedQty
+                        }
+                    ]}
+                />
+
+
+
                 <Card>
                     <Text style={Styles.pointsTitle}>Product Details</Text>
                     {this.props.data.points.map((point, i) => {
@@ -76,35 +117,13 @@ class ProductDetailsScreen extends React.Component<ProductDetailsScreenProps, Pr
                 </Card>
 
                 <Card>
-                <Text style={Styles.pointsTitle}>Images</Text>
+                    <Text style={Styles.pointsTitle}>Images</Text>
                     <BackgroundCarousel images={images} />
                 </Card>
 
-                {/* <Carousel
-                    style='stats'
-                    itemsPerInterval={3}
-                    items={[{
-                        label: 'TODAY',
-                        value: 1,
-                    }, {
-                        label: 'THIS WEEK',
-                        value: 39,
-                    }, {
-                        label: 'THIS MONTH',
-                        value: 120,
-                    }, {
-                        label: 'YESTERDAY',
-                        value: 3,
-                    }, {
-                        label: 'LAST WEEK',
-                        value: 25,
-                    }, {
-                        label: 'LAST MONTH',
-                        value: 175,
-                    }]}
-                />
 
-                <Carousel
+
+                {/* <Carousel
                     style='slide'
                     items={[{
                         title: 'Welcome, swipe to continue.',
@@ -113,12 +132,7 @@ class ProductDetailsScreen extends React.Component<ProductDetailsScreenProps, Pr
                     }, {
                         title: 'About feature Y.',
                     }]}
-                /> */}
-
-                
-
-
-
+                />  */}
             </ScrollView>
         )
     }

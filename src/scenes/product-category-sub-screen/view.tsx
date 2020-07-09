@@ -17,6 +17,7 @@ class ProductCategorySubScreen extends React.Component<ProductCategorySubScreenP
     state = {
         searchInput: ""
     }
+    _isMounted = false
 
     constructor(props: ProductCategorySubScreenProps, state: ProductCategorySubScreenState) {
         super(props)
@@ -45,9 +46,19 @@ class ProductCategorySubScreen extends React.Component<ProductCategorySubScreenP
     }
 
     searchText = (searchText: string) => {
-        this.setState({ searchInput: searchText })
+        if(this._isMounted) {
+            this.setState({ searchInput: searchText })
+        }
         console.log(`Searched partial text is ${searchText}`)
         this.props.subCategorySearch(searchText)
+    }
+
+    componentDidMount() {
+        this._isMounted = true
+    }
+ 
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     render(): React.ReactNode {

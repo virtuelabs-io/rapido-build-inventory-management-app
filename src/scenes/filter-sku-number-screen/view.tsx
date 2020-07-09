@@ -11,7 +11,7 @@ import { SimpleListHolder } from '@virtuelabs-io/rapido-modules/src/components/a
 import { setSKUNumberFilter } from '../../store/products/actions';
 
 class FilterSKUNumberScreen extends React.Component<FilterSKUNumberScreenProps, FilterSKUNumberScreenState> {
-
+    _isMounted = false
     state = {
         searchInput: ""
     }
@@ -27,12 +27,22 @@ class FilterSKUNumberScreen extends React.Component<FilterSKUNumberScreenProps, 
     }
 
     searchSKUNumber = (partialOrderNumber: string) => {
-        this.setState({ searchInput: partialOrderNumber })
+        if(this._isMounted) {
+            this.setState({ searchInput: partialOrderNumber })
+        }
     }
 
     selectOrderNumberAndNavigateBackHandler = (selectedSKUNumber: string) => {
         this.props.setSKUNumber(Number(selectedSKUNumber))
         this.props.navigation.goBack()
+    }
+
+    componentDidMount() {
+        this._isMounted = true
+    }
+ 
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     render(): React.ReactNode {

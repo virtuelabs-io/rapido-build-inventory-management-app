@@ -23,7 +23,7 @@ import { addCategory, addCategoryAction, addSubCategory } from '../../store/prod
 import { setOTP } from '../../store/core/actions';
 
 class AddProductCategoryScreen extends React.Component<AddProductCategoryScreenProps, AddProductCategoryScreenState> {
-
+    _isMounted = false
     state = {
         addCategory: ""
     }
@@ -44,7 +44,17 @@ class AddProductCategoryScreen extends React.Component<AddProductCategoryScreenP
     }
 
     handleAddCategory = (category: string) => {
-        this.setState({ addCategory: category })
+        if(this._isMounted) {
+            this.setState({ addCategory: category })
+        }
+    }
+
+    componentDidMount() {
+        this._isMounted = true
+    }
+ 
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     render(): React.ReactNode {

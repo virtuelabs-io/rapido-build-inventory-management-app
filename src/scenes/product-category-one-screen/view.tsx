@@ -11,7 +11,7 @@ import { Search } from '@virtuelabs-io/rapido-modules/src/components/atoms/searc
 import { mainCategorySearch } from '../../store/products/actions';
 
 class ProductCategoryOneScreen extends React.Component<ProductCategoryOneScreenProps, ProductCategoryOneScreenState> {
-
+    _isMounted = false
     state = {
         searchInput: ""
     }
@@ -46,8 +46,18 @@ class ProductCategoryOneScreen extends React.Component<ProductCategoryOneScreenP
     }
 
     searchText = (searchText: string) => {
-        this.setState({ searchInput: searchText })
+        if(this._isMounted) {
+            this.setState({ searchInput: searchText })
+        }
         this.props.mainCategorySearch(searchText)
+    }
+
+    componentDidMount() {
+        this._isMounted = true
+    }
+ 
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     render(): React.ReactNode {

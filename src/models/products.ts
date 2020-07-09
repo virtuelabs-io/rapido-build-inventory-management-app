@@ -4,6 +4,7 @@ export type ProductHeader =
     "fields": {
         "name": string,
         "InStockQty": number,
+        "BlockedQty": number,
         "points": string[],
         "description": string,
         "price": number,
