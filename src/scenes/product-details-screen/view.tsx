@@ -12,9 +12,11 @@ import { RText } from '@virtuelabs-io/rapido-modules/src/components/atoms/r-text
 import { Carousel } from '../../components/organisms/Carousel';
 import BackgroundCarousel from '../../components/organisms/Background-carousel/view';
 
-
-
 const { height } = Dimensions.get("window");
+var arr: {
+    label: string,
+    value: string
+}[] = []
 
 const images = [
     "https://images.unsplash.com/photo-1508138221679-760a23a2285b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
@@ -36,6 +38,44 @@ class ProductDetailsScreen extends React.Component<ProductDetailsScreenProps, Pr
 
             }
         ))
+    }
+
+    componentDidMount() {
+        console.log('inside component did mount !!')
+        this.setProductSpecification()
+    }
+
+    setProductSpecification = () => {
+        arr = [
+            {
+                label: 'Brand Name',
+                value: 'Diesel'
+            }, {
+                label: 'Model number',
+                value: 'DZT2009'
+            }, {
+                label: 'Model Year',
+                value: '2018'
+            }, {
+                label: 'Item Shape',
+                value: 'Round'
+            }, {
+                label: 'Band Material',
+                value: 'Leather'
+            }, {
+                label: 'Band Width',
+                value: '24 millimetres'
+            }, {
+                label: 'Band Colour',
+                value: 'Brown'
+            }
+            , {
+                label: 'Band Size',
+                value: '22'
+            }
+        ]
+
+        // this.setState()
     }
 
 
@@ -94,21 +134,37 @@ class ProductDetailsScreen extends React.Component<ProductDetailsScreenProps, Pr
 
                 <Card>
                     <Text style={Styles.pointsTitle}>Product Descriptions</Text>
-                    {this.props.data.details.map((point, i) => {
-                        return (
-                            <View key={i} style={Styles.pointsCard}>
-                                <Entypo name="dot-single" size={24} color="black" />
-                                <Text style={Styles.points}>{point}</Text>
-                            </View>
-                        )
-                    })
-                    }
+                    <View style={Styles.pointsCard}>
+                        <Entypo name="dot-single" size={24} color="black" />
+                        <Text style={Styles.points}>{this.props.data.description}</Text>
+                    </View>
                 </Card>
 
                 <Card>
                     <Text style={Styles.pointsTitle}>Images</Text>
                     <BackgroundCarousel images={images} />
                 </Card>
+
+
+                <Text style={Styles.pointsTitle}>Product Specifications</Text>
+                <Carousel
+                    style='stats'
+                    itemsPerInterval={2}
+                    items={arr} />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -11,7 +11,7 @@
                 "The dynamic Galaxy Watch Active will make every move count by tracking and automatically storing every walk, run and cycle, recognising when you're working out",
                 "Real-time guidance to reach wellness goals: Samsung's Galaxy Watch Active can track your sleep, gives you breathing exercises to help reduce stress and creates healthy habits that last"
             ],
-            "description": "Product description",
+            "description": "This product can only be delivered in the following countries : United-Kingdom, Ireland, Germany, France, Belgium, the Netherlands, Luxembourg, Portugal and Spain",
             "price": 57.90,
             "notes": "some notes",
             "currency": "£",
@@ -22,8 +22,8 @@
             "rating": 3.5,
             "offer": 0.1,
             "details": [
-                "This product can only be delivered in the following countries : United-Kingdom, Ireland, Germany, France, Belgium, the Netherlands, Luxembourg, Portugal and Spain",
-                "Nothing beating this"
+                "key:value",
+                "key:value"
             ],
             "tags": [
                 "tag 1",

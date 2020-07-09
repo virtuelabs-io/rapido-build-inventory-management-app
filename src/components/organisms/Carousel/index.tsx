@@ -20,12 +20,12 @@ export const Carousel = (props: any) => {
     setWidth(width);
     // initialise total intervals
     const totalItems = items.length;
-    setIntervals(Math.ceil(totalItems / itemsPerInterval));
+    setIntervals(Math.floor(totalItems / itemsPerInterval));
   }
 
-  const getInterval = (offset: any) => {
+  const getInterval = (offset: number) => {
     for (let i = 1; i <= intervals; i++) {
-      if (offset < (width / intervals) * i) {
+      if ((offset < (width / intervals) * i)) {
         return i;
       }
       if (i == intervals) {
@@ -57,8 +57,10 @@ export const Carousel = (props: any) => {
         showsHorizontalScrollIndicator={false}
         onContentSizeChange={(w, h) => init(w)}
         onScroll={data => {
-          setWidth(data.nativeEvent.contentSize.width);
-          setInterval(2); //getInterval(data.nativeEvent.contentOffset.x)
+          setWidth(data.nativeEvent.contentSize.width)
+          var e: any = data.nativeEvent.contentOffset.x
+          var d: any = getInterval(e)
+          setInterval(d)
         }}
         scrollEventThrottle={200}
         pagingEnabled
