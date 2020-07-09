@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native'
 import Utils from '@virtuelabs-io/rapido-modules/src/commons/utils';
+import { Colors } from '@virtuelabs-io/rapido-modules/src/commons/styles/colors';
 
 export const styles = StyleSheet.create({
   stat: {
@@ -8,6 +9,7 @@ export const styles = StyleSheet.create({
     paddingTop: 30,
     flexBasis: '33%',
     flex: 1,
+    borderRadius: 10,
     maxWidth: '33%',
     display: 'flex',
     flexDirection: 'row',
@@ -15,6 +17,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     alignContent: 'center',
     justifyContent: 'center',
+    backgroundColor: Colors.secondary
   },
   statText: {
     width: '100%',
@@ -24,7 +27,7 @@ export const styles = StyleSheet.create({
   },
   statHold: {
     width: '100%',
-    marginBottom: 8,
+    marginBottom: 8
   },
   statLabel: {
     width: '100%',

@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import { Colors } from '@virtuelabs-io/rapido-modules/src/commons/styles/colors';
 
 export const styles = StyleSheet.create({
   slide: {
@@ -15,11 +16,12 @@ export const styles = StyleSheet.create({
     alignContent: 'center',
     justifyContent: 'center',
     height: 200,
+    backgroundColor: Colors.secondary
   },
   slideText: {
     width: '100%',
     textAlign: 'left',
-    fontSize: 20,
+    fontSize: 20
   },
 });
 

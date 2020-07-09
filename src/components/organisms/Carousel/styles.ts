@@ -1,5 +1,6 @@
   
 import { StyleSheet } from 'react-native'
+import { Colors } from '@virtuelabs-io/rapido-modules/src/commons/styles/colors';
 
 export const styles = StyleSheet.create({
   statsHead: {
@@ -9,23 +10,24 @@ export const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     width: '100%',
-    backgroundColor: '#fbfbfb',
-    borderColor: '#ebebeb',
-    borderWidth: 1,
-    borderRadius: 8,
-    shadowColor: '#fcfcfc',
-    shadowOpacity: 1,
-    marginTop: 10,
+    backgroundColor: Colors.secondary,
+    shadowColor: Colors.palePrimary,
+    shadowRadius: 5,
+    shadowOpacity: 0.4,
+    elevation: 4,
     shadowOffset: {
       width: 0,
-      height: 5
-    },
+      height: 0
+  },
+    borderColor: '#ebebeb',
+    borderWidth: 1,
+    borderRadius: 10,
+    marginTop: 10
   },
   scrollView: {
     display: 'flex',
     flexDirection: 'row',
-    overflow: 'hidden',
-    // justifyContent: 'center'
+    overflow: 'hidden'
   },
   bullets: {
     position: 'absolute',
