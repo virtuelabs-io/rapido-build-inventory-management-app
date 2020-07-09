@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import Utils from '@virtuelabs-io/rapido-modules/src/commons/utils';
 
 export const styles = StyleSheet.create({
   stat: {
@@ -19,6 +20,7 @@ export const styles = StyleSheet.create({
     width: '100%',
     textAlign: 'left',
     fontSize: 20,
+    fontFamily: Utils.getFontFamily()
   },
   statHold: {
     width: '100%',
@@ -28,8 +30,8 @@ export const styles = StyleSheet.create({
     width: '100%',
     textAlign: 'left',
     fontSize: 11,
-    fontWeight: '600',
     paddingTop: 5,
+    fontFamily: Utils.getFontFamily()
   },
 });
 

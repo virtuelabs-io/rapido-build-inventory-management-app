@@ -38,36 +38,12 @@ class ProductDetailsScreen extends React.Component<ProductDetailsScreenProps, Pr
         ))
     }
 
-    // componentDidMount() {
-    //     this._isMounted = true
-    // }
-
-    // componentWillUnmount() {
-    //     this._isMounted = false;
-    // }
-
-    // onContentSizeChange = (contentWidth: any, contentHeight: any) => {
-    //     this._isMounted = true
-    //     if(this._isMounted) {
-    //         this.setState({ screenHeight: contentHeight })
-    //     }
-    // }
-
-
-
-
-
 
 
     render(): React.ReactNode {
-        const enableScroll = true //Number(this.state.screenHeight) > height
         return (
-            <ScrollView style={Styles.screen}
-            // scrollEnabled={enableScroll}
-            // onContentSizeChange={this.onContentSizeChange}
-            >
+            <ScrollView style={Styles.screen}>
                 <RTitleText>{this.props.data.name}</RTitleText>
-
                 <Carousel
                     style='stats'
                     itemsPerInterval={3}
@@ -106,6 +82,19 @@ class ProductDetailsScreen extends React.Component<ProductDetailsScreenProps, Pr
                 <Card>
                     <Text style={Styles.pointsTitle}>Product Details</Text>
                     {this.props.data.points.map((point, i) => {
+                        return (
+                            <View key={i} style={Styles.pointsCard}>
+                                <Entypo name="dot-single" size={24} color="black" />
+                                <Text style={Styles.points}>{point}</Text>
+                            </View>
+                        )
+                    })
+                    }
+                </Card>
+
+                <Card>
+                    <Text style={Styles.pointsTitle}>Product Descriptions</Text>
+                    {this.props.data.details.map((point, i) => {
                         return (
                             <View key={i} style={Styles.pointsCard}>
                                 <Entypo name="dot-single" size={24} color="black" />
