@@ -40,46 +40,6 @@ class ProductDetailsScreen extends React.Component<ProductDetailsScreenProps, Pr
         ))
     }
 
-    componentDidMount() {
-        console.log('inside component did mount !!')
-        this.setProductSpecification()
-    }
-
-    setProductSpecification = () => {
-        arr = [
-            {
-                label: 'Brand Name',
-                value: 'Diesel'
-            }, {
-                label: 'Model number',
-                value: 'DZT2009'
-            }, {
-                label: 'Model Year',
-                value: '2018'
-            }, {
-                label: 'Item Shape',
-                value: 'Round'
-            }, {
-                label: 'Band Material',
-                value: 'Leather'
-            }, {
-                label: 'Band Width',
-                value: '24 millimetres'
-            }, {
-                label: 'Band Colour',
-                value: 'Brown'
-            }
-            , {
-                label: 'Band Size',
-                value: '22'
-            }
-        ]
-
-        // this.setState()
-    }
-
-
-
     render(): React.ReactNode {
         return (
             <ScrollView style={Styles.screen}>
@@ -99,7 +59,6 @@ class ProductDetailsScreen extends React.Component<ProductDetailsScreenProps, Pr
                     }]}
                 />
 
-
                 <Carousel
                     style='stats'
                     itemsPerInterval={3}
@@ -116,8 +75,6 @@ class ProductDetailsScreen extends React.Component<ProductDetailsScreenProps, Pr
                         }
                     ]}
                 />
-
-
 
                 <Card>
                     <Text style={Styles.pointsTitle}>Product Details</Text>
@@ -145,28 +102,11 @@ class ProductDetailsScreen extends React.Component<ProductDetailsScreenProps, Pr
                     <BackgroundCarousel images={images} />
                 </Card>
 
-
                 <Text style={Styles.pointsTitle}>Product Specifications</Text>
                 <Carousel
                     style='stats'
                     itemsPerInterval={2}
                     items={arr} />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                 {/* <Carousel
                     style='slide'
@@ -185,6 +125,34 @@ class ProductDetailsScreen extends React.Component<ProductDetailsScreenProps, Pr
 
 const mapStatetoProps = (state: AppState, localProps: ProductDetailsScreenProps): ProductDetailsScreenProps => {
     var selProduct = state.products.headerRecords.filter((product) => product.id == localProps.route.params.id)
+    arr = [
+        {
+            label: 'Brand Name',
+            value: 'Diesel'
+        }, {
+            label: 'Model number',
+            value: 'DZT2009'
+        }, {
+            label: 'Model Year',
+            value: '2018'
+        }, {
+            label: 'Item Shape',
+            value: 'Round'
+        }, {
+            label: 'Band Material',
+            value: 'Leather'
+        }, {
+            label: 'Band Width',
+            value: '24 millimetres'
+        }, {
+            label: 'Band Colour',
+            value: 'Brown'
+        }
+        , {
+            label: 'Band Size',
+            value: '22'
+        }
+    ]
     return {
         ...localProps,
         data: selProduct[0].fields

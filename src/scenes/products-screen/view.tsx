@@ -18,7 +18,7 @@ class ProductScreen extends React.Component<ProductScreenProps, ProductScreenSta
             this.props.title,
             "plus",
             () => {
-                 console.log('add products clicked !')
+                 this.handleNavigateToNewProduct()
             }
         )
         options = {
@@ -44,6 +44,12 @@ class ProductScreen extends React.Component<ProductScreenProps, ProductScreenSta
         this.props.navigation.navigate('productDetails', {
             title: "Details",
             id: id
+        })
+    }
+
+    handleNavigateToNewProduct = () => {
+        this.props.navigation.navigate('productAdd', {
+            title: "New Product"
         })
     }
 

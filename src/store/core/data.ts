@@ -35,6 +35,9 @@ export const CoreReduxInitialState: CoreReduxStateType = {
             productDetails: {
                 title: "Details",
                 id: 0
+            },
+            productAdd: {
+                title: 'New Product'
             }
         },
 
