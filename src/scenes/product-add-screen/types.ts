@@ -5,7 +5,7 @@ import { ProductHeader } from '../../models/products';
 export type ProductAddScreenParamProps = StackScreenProps<ProductStackNavigationParamsType, 'productAdd'>
 
 export type ProductAddScreenState = {
-    
+   // actionType: 'Camera' | 'CameraRole'
 }
 
 export type ProductAddScreenDataProps = {

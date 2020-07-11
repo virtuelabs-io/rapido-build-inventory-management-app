@@ -77,7 +77,6 @@ class ProductCategoryOneScreen extends React.Component<ProductCategoryOneScreenP
                                     <Text style={Styles.itemTextStyle}>   {item.CategoryName}</Text>
                                 </View>
                             </TouchableOpacity>
-
                         )
                     }}
                     keyExtractor={item => item.CategoryId.toString()}
